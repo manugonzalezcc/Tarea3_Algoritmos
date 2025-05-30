@@ -1,4 +1,5 @@
-#include "../incs/hash.h"
+#include "hash.h"
+#include "libs.h"
 
 int hash(char *palabra)
 {

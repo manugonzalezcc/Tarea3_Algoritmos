@@ -1,7 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "search.h"
+#include "libs.h"
 
 void computeLPS(const char *pattern, int M, int *lps)
 {

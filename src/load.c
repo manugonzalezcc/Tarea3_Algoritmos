@@ -1,16 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "load.h"
+#include "libs.h"
 
-#define TAM_MAX 1000000
-
-char *cargar_archivo(const char *ruta_archivo)
+char *load(const char *route)
 {
-    FILE *archivo = fopen(ruta_archivo, "r");
-    if (!archivo)
+    FILE *file = fopen(route, "r");
+    if (!file)
     {
-        perror("Error al abrir el archivo");
+        perror("Error al abrir el file");
         return NULL;
     }
 
@@ -18,40 +14,40 @@ char *cargar_archivo(const char *ruta_archivo)
     if (!buffer)
     {
         perror("Error de memoria");
-        fclose(archivo);
+        fclose(file);
         return NULL;
     }
 
-    size_t leido = fread(buffer, 1, TAM_MAX - 1, archivo);
-    buffer[leido] = '\0';
+    size_t readed = fread(buffer, 1, TAM_MAX - 1, file);
+    buffer[readed] = '\0';
 
-    fclose(archivo);
+    fclose(file);
     return buffer;
 }
 
-void limpiar_html(char *texto)
+void clean_html(char *texto)
 {
-    char *lectura = texto;
-    char *escritura = texto;
-    int dentro_etiqueta = 0;
+    char *read = texto;
+    char *write = texto;
+    int label = 0;
 
-    while (*lectura)
+    while (*read)
     {
-        if (*lectura == '<')
+        if (*read == '<')
         {
-            dentro_etiqueta = 1;
+            label = 1;
         }
-        else if (*lectura == '>')
+        else if (*read == '>')
         {
-            dentro_etiqueta = 0;
-            lectura++;
+            label = 0;
+            read++;
             continue;
         }
-        else if (!dentro_etiqueta)
+        else if (!label)
         {
-            *escritura++ = *lectura;
+            *write++ = *read;
         }
-        lectura++;
+        read++;
     }
-    *escritura = '\0';
+    *write = '\0';
 }

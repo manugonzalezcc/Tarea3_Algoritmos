@@ -1,5 +1,6 @@
 #ifndef HASH_H
 #define HASH_H
+#include "libs.h"
 
 #define SIZE 1000
 

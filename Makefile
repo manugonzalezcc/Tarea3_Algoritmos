@@ -1,24 +1,28 @@
 CC = gcc
-CFLAGS = -Wall -Iincs
-OBJ = obj/main.o obj/search.o
-TARGET = build/program
+CFLAGS = -Wall -Wextra -Iincs
 
-all: $(TARGET)
+SRC_DIR = src
+OBJ_DIR = obj
+BUILD_DIR = build
+
+SRC = $(wildcard $(SRC_DIR)/*.c)
+OBJ = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC))
+
+TARGET = $(BUILD_DIR)/program
+
+all: folders $(TARGET)
 
 $(TARGET): $(OBJ)
-	mkdir -p build obj
-	$(CC) $(OBJ) -o $(TARGET)
+	$(CC) $(CFLAGS) -o $@ $^
 
-obj/main.o: src/main.c incs/search.h
-	mkdir -p obj
-	$(CC) $(CFLAGS) -c src/main.c -o obj/main.o
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-obj/search.o: src/search.c incs/search.h
-	mkdir -p obj
-	$(CC) $(CFLAGS) -c src/search.c -o obj/search.o
+folders:
+	mkdir -p $(OBJ_DIR) $(BUILD_DIR)
 
 clean:
-	rm -rf obj/*.o $(TARGET)
+	rm -rf $(OBJ_DIR)/*.o $(TARGET)
 
 run:
-	cd build && ./program
+	./build/program docs/doc1.html

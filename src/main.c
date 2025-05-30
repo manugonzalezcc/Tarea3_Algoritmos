@@ -1,16 +1,29 @@
-#include <stdio.h>
-#include "../incs/search.h"
+#include "load.h"
+#include "tokenizer.h"
+#include "libs.h"
 
-int main()
+int main(int argc, char *argv[])
 {
-    const char *text = "ABABDABACDABABCABAB";
-    const char *pattern = "ABABCABAB";
+    if (argc < 2)
+    {
+        printf("Uso: %s archivo.txt\n", argv[0]);
+        return 1;
+    }
 
-    printf("Texto: %s\n", text);
-    printf("Patrón a buscar: %s\n", pattern);
+    char *texto = load(argv[1]);
+    if (!texto)
+        return 1;
 
-    int ocurrencias = kmp_search(text, pattern);
-    printf("Número total de ocurrencias: %d\n", ocurrencias);
+    clean_html(texto);
 
+    ListaTokens tokens = tokenizar_texto(texto);
+
+    for (int i = 0; i < tokens.cantidad; i++)
+    {
+        printf("Token %d: %s\n", i + 1, tokens.tokens[i]);
+    }
+
+    liberar_tokens(tokens);
+    free(texto);
     return 0;
 }
