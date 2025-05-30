@@ -19,11 +19,15 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 folders:
-	mkdir -p $(OBJ_DIR) $(BUILD_DIR)
+	mkdir $(OBJ_DIR) 2>NUL
+	mkdir $(BUILD_DIR) 2>NUL
 
 clean:
-	rm -rf $(OBJ_DIR)/*.o $(TARGET)
+	if exist $(OBJ_DIR) rmdir /s /q $(OBJ_DIR)
+	if exist $(BUILD_DIR) rmdir /s /q $(BUILD_DIR)
 
 run:
-	cd build && ./program -h
+	$(TARGET)
 
+.PHONY: all clean run folders
+.PRECIOUS: $(OBJ_DIR)/%.o

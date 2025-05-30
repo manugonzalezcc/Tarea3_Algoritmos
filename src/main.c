@@ -3,6 +3,7 @@
 #include "tokenizer.h"
 #include "search.h"
 #include "help.h"
+#include "boyer_moore.h" // <-- Agrega esta línea
 
 int main(int argc, char *argv[])
 {
@@ -16,10 +17,10 @@ int main(int argc, char *argv[])
         {
         case 'f':
             archivo = optarg;
+            break;
         case 'h':
             print_help(argv[0]);
             return 0;
-            break;
         case 'v':
             verbose = 1;
             break;
@@ -28,6 +29,8 @@ int main(int argc, char *argv[])
             return 1;
         }
     }
+
+    printf("DEBUG: archivo = %s\n", archivo); // <-- agrega esto
 
     if (archivo == NULL)
     {
@@ -40,6 +43,12 @@ int main(int argc, char *argv[])
     {
         printf("Modo verbose activado\n");
     }
+
+    // Prueba de Boyer-Moore
+    const char *texto = "este es un texto de prueba, texto de ejemplo";
+    const char *patron = "texto";
+    int ocurrencias = boyer_moore_bad_char(texto, patron);
+    printf("Boyer-Moore: El patrón '%s' aparece %d veces en el texto.\n", patron, ocurrencias);
 
     return 0;
 }

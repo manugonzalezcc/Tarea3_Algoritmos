@@ -8,3 +8,4 @@ void print_help(const char *prog_name)
     printf("  -v             Modo verbose (mostrar detalles adicionales)\n");
     printf("  -h, --help     Mostrar esta ayuda y salir\n");
 }
+

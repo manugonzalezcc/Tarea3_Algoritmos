@@ -7,3 +7,4 @@ int kmp_search(const char *text, const char *pattern);
 void computeLPS(const char *pattern, int M, int *lps);
 
 #endif
+
