@@ -3,15 +3,14 @@
 
 int main()
 {
-    const char *texto = "abracadabra";
-    const char *patron = "abra";
+    const char *text = "ABABDABACDABABCABAB";
+    const char *pattern = "ABABCABAB";
 
-    printf("Texto: %s\n", texto);
-    printf("Patron a buscar: %s\n", patron);
+    printf("Texto: %s\n", text);
+    printf("Patrón a buscar: %s\n", pattern);
 
-    int ocurrencias = brute_force_search(texto, patron);
-
-    printf("Numero total de ocurrencias: %d\n", ocurrencias);
+    int ocurrencias = kmp_search(text, pattern);
+    printf("Número total de ocurrencias: %d\n", ocurrencias);
 
     return 0;
 }
