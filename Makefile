@@ -25,4 +25,5 @@ clean:
 	rm -rf $(OBJ_DIR)/*.o $(TARGET)
 
 run:
-	./build/program docs/doc1.html
+	cd build && ./program -h
+
