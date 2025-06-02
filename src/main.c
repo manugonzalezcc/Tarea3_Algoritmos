@@ -5,6 +5,7 @@
 #include "boyer_moore.h"
 #include "load.h"
 #include "kmp.h"
+#include "hash.h"
 
 int main(int argc, char *argv[])
 {
@@ -65,6 +66,9 @@ int main(int argc, char *argv[])
 
     if (usar_kmp)
     {
+        void construirTablaHash(char *texto);
+        void imprimirTabla(void);
+
         fprintf(stdout, "Ejecutando búsqueda con KMP...\n");
 
         char *texto = load(archivo);
@@ -76,10 +80,16 @@ int main(int argc, char *argv[])
 
         printf("Contenido del archivo (normalizado):\n%s\n", texto);
 
-        const char *patron = "EJEMPLO";
+        construirTablaHash(texto);
+
+        printf("Tabla hash con frecuencia de palabras:\n");
+        imprimirTabla();
+
+        const char *patron = "ejemplo";
         int ocurrencias = kmp_search(texto, patron);
 
         printf("KMP: El patrón '%s' aparece %d veces en el texto.\n", patron, ocurrencias);
+
         free(texto);
     }
 

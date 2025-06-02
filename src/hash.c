@@ -44,3 +44,15 @@ void imprimirTabla()
         }
     }
 }
+
+void construirTablaHash(char *texto)
+{
+    char *delimiters = " \n\t.,;:!?\"()[]{}<>-";
+    char *palabra = strtok(texto, delimiters);
+
+    while (palabra != NULL)
+    {
+        insertar(palabra);
+        palabra = strtok(NULL, delimiters);
+    }
+}

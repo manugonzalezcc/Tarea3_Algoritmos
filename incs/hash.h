@@ -15,6 +15,7 @@ Nodo *tablaHash[SIZE];
 
 int hash(char *palabra);
 void insertar(char *palabra);
-void imprimirTabla();
+void imprimirTabla(void);
+void construirTablaHash(char *texto);
 
 #endif
