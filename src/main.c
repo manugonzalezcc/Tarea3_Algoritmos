@@ -1,11 +1,10 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <string.h>
-#include <getopt.h>
+#include "libs.h"
 #include "tokenizer.h"
 #include "search.h"
 #include "help.h"
 #include "boyer_moore.h"
+#include "load.h"
+#include "kmp.h"
 
 int main(int argc, char *argv[])
 {
@@ -66,8 +65,24 @@ int main(int argc, char *argv[])
 
     if (usar_kmp)
     {
-        printf("Ejecutando búsqueda con KMP...\n");
+        fprintf(stdout, "Ejecutando búsqueda con KMP...\n");
+
+        char *texto = load(archivo);
+        if (!texto)
+        {
+            fprintf(stderr, "Error al cargar el archivo.\n");
+            return 1;
+        }
+
+        printf("Contenido del archivo (normalizado):\n%s\n", texto);
+
+        const char *patron = "EJEMPLO";
+        int ocurrencias = kmp_search(texto, patron);
+
+        printf("KMP: El patrón '%s' aparece %d veces en el texto.\n", patron, ocurrencias);
+        free(texto);
     }
+
     else if (usar_bm)
     {
         const char *texto = "este es un texto de prueba, texto de ejemplo";
