@@ -1,0 +1,26 @@
+.
+├── Makefile
+├── README.md
+├── algoritmos.txt
+├── docs
+│   ├── doc1.html
+│   ├── doc2.html
+│   └── proy3.pdf
+├── incs
+│   ├── boyer_moore.h
+│   ├── hash.h
+│   ├── help.h
+│   ├── libs.h
+│   ├── load.h
+│   ├── search.h
+│   └── tokenizer.h
+└── src
+    ├── boyer_moore.c
+    ├── hash.c
+    ├── help.c
+    ├── load.c
+    ├── main.c
+    ├── search.c
+    └── tokenizer.c
+
+4 directories, 20 files

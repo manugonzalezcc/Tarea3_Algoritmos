@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Iincs
+CFLAGS = -Wall -Wextra -g -Iincs
 
 SRC_DIR = src
 OBJ_DIR = obj
@@ -19,15 +19,14 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 folders:
-	mkdir $(OBJ_DIR) 2>NUL
-	mkdir $(BUILD_DIR) 2>NUL
+	mkdir -p $(OBJ_DIR)
+	mkdir -p $(BUILD_DIR)
 
 clean:
-	if exist $(OBJ_DIR) rmdir /s /q $(OBJ_DIR)
-	if exist $(BUILD_DIR) rmdir /s /q $(BUILD_DIR)
+	rm -rf $(OBJ_DIR) $(BUILD_DIR)
 
 run:
-	$(TARGET)
+	./$(TARGET)
 
 .PHONY: all clean run folders
 .PRECIOUS: $(OBJ_DIR)/%.o
