@@ -10,19 +10,21 @@
 int main(int argc, char *argv[])
 {
     int opt;
-    char *archivo = NULL;
+    char *file = NULL;
 
-    int usar_kmp = 0;
-    int usar_bm = 0;
-    int usar_algoritmo3 = 0;
+    int use_kmp = 0;
+    int use_bm = 0;
+    int use_algoritmo3 = 0;
+    char *pattern = NULL;
 
     static struct option long_options[] = {
-        {"file", required_argument, 0, 'f'}, // -f o --file
-        {"verbose", no_argument, 0, 'v'},    // -v o --verbose
-        {"help", no_argument, 0, 'h'},       // -h o --help
-        {"kmp", no_argument, 0, 1},          // --kmp
-        {"bm", no_argument, 0, 2},           // --bm
-        {"algoritmo3", no_argument, 0, 3},   // --algoritmo3
+        {"file", required_argument, 0, 'f'},
+        {"verbose", no_argument, 0, 'v'},
+        {"help", no_argument, 0, 'h'},
+        {"kmp", no_argument, 0, 1},
+        {"bm", no_argument, 0, 2},
+        {"algoritmo3", no_argument, 0, 3},
+        {"pattern", required_argument, 0, 4},
         {0, 0, 0, 0}};
 
     int long_index = 0;
@@ -32,75 +34,88 @@ int main(int argc, char *argv[])
         switch (opt)
         {
         case 'f':
-            archivo = optarg;
+            file = optarg;
             break;
         case 'h':
             print_help(argv[0]);
             return 0;
         case 1:
-            usar_kmp = 1;
+            use_kmp = 1;
             break;
         case 2:
-            usar_bm = 1;
+            use_bm = 1;
             break;
         case 3:
-            usar_algoritmo3 = 1;
+            use_algoritmo3 = 1;
             break;
+        case 4:
+            pattern = optarg;
+            break;
+
         default:
-            fprintf(stderr, "Uso: %s -f <archivo> [-kmp | -bm | -algoritmo3]\n", argv[0]);
+            fprintf(stderr, "Uso: %s -f <file> [-kmp | -bm | -algoritmo3]\n", argv[0]);
             return 1;
         }
     }
 
-    if (archivo == NULL)
+    if (file == NULL)
     {
-        fprintf(stderr, "El parámetro -f archivo es obligatorio\n");
+        fprintf(stderr, "El parámetro -f file es obligatorio\n");
         return 1;
     }
 
-    if (!usar_kmp && !usar_bm && !usar_algoritmo3)
+    if (!use_kmp && !use_bm && !use_algoritmo3)
     {
         fprintf(stderr, "Debes especificar uno de: --kmp, --bm, --algoritmo3\n");
         return 1;
     }
 
-    if (usar_kmp)
+    if ((use_kmp || use_bm) && pattern == NULL)
     {
-        void construirTablaHash(char *texto);
-        void imprimirTabla(void);
+        fprintf(stderr, "Debes especificar un patrón con --pattern \"palabra\"\n");
+        return 1;
+    }
+
+    if (use_kmp)
+    {
+        void build_hash_table(char *text);
+        void printf_hash_table(void);
+        int word_frequency(const char *word_to_searcj);
 
         fprintf(stdout, "Ejecutando búsqueda con KMP...\n");
 
-        char *texto = load(archivo);
-        if (!texto)
+        char *text = load(file);
+        if (!text)
         {
             fprintf(stderr, "Error al cargar el archivo.\n");
             return 1;
         }
 
-        printf("Contenido del archivo (normalizado):\n%s\n", texto);
+        printf("Contenido del archivo (normalizado):\n%s\n", text);
 
-        construirTablaHash(texto);
+        build_hash_table(text);
+
+        normalize_text(pattern);
 
         printf("Tabla hash con frecuencia de palabras:\n");
-        imprimirTabla();
+        printf_hash_table();
 
-        const char *patron = "ejemplo";
-        int ocurrencias = kmp_search(texto, patron);
+        int ocurrencias = word_frequency(pattern);
+        kmp_search(text, pattern);
 
-        printf("KMP: El patrón '%s' aparece %d veces en el texto.\n", patron, ocurrencias);
+        printf("La palabara '%s' aparece %d veces en el texto.\n", pattern, ocurrencias);
 
-        free(texto);
+        free(text);
     }
 
-    else if (usar_bm)
+    else if (use_bm)
     {
-        const char *texto = "este es un texto de prueba, texto de ejemplo";
+        const char *text = "este es un texto de prueba, texto de ejemplo";
         const char *patron = "texto";
-        int ocurrencias = boyer_moore_bad_char(texto, patron);
+        int ocurrencias = boyer_moore_bad_char(text, patron);
         printf("Boyer-Moore: El patrón '%s' aparece %d veces en el texto.\n", patron, ocurrencias);
     }
-    else if (usar_algoritmo3)
+    else if (use_algoritmo3)
     {
         printf("Ejecutando búsqueda con algoritmo3...\n");
     }

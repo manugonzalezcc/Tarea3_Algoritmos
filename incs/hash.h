@@ -6,16 +6,17 @@
 
 typedef struct nodo
 {
-    char palabra[100];
-    int frecuencia;
-    struct nodo *siguiente;
-} Nodo;
+    char word[100];
+    int frequency;
+    struct node *next;
+} Node;
 
-Nodo *tablaHash[SIZE];
+Node *tablaHash[SIZE];
 
 int hash(char *palabra);
-void insertar(char *palabra);
-void imprimirTabla(void);
-void construirTablaHash(char *texto);
+void insert(char *palabra);
+void printf_hash_table(void);
+void build_hash_table(char *texto);
+int word_frequency(const char *palabra_buscada);
 
 #endif
