@@ -1,0 +1,2 @@
+algoritmo,archivo,patron,comparaciones,accesos_memoria,tiempo_ms
+kmp,resultados_kmp.csv,ipsu,957,1010,0.019
