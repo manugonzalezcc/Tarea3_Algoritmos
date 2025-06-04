@@ -25,5 +25,5 @@ clean:
 	rm -rf $(OBJ_DIR)/*.o $(TARGET)
 
 run:
-	cd build && ./program -f ../docs/doc1.html --kmp --pattern mento && cd ..
+	cd build && ./program -f ../docs/doc1.html --kmp --pattern documento && cd ..
 
