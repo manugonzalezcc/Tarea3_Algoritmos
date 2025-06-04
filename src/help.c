@@ -2,7 +2,7 @@
 
 void print_help(const char *prog_name)
 {
-    printf("Uso: %s -f <archivo> [-kmp | -bm | -algoritmo3]\n", prog_name);
+    printf("Uso del programa: ./run.sh -f <ruta_archivo> --algoritmo --pattern patron_a_buscar\n");
     printf("Opciones:\n");
     printf("  -f <archivo>       Archivo de texto a procesar (requerido)\n");
     printf("  -kmp               Explica el algoritmo Knuth-Morris-Pratt\n");
