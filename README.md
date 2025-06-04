@@ -28,6 +28,49 @@ Además, evaluaremos el rendimiento de los algoritmos implementados para entende
 
 ---
 
+### 🗓 Cronograma de Desarrollo
+📅 Del 3 al 6 de junio
+
+    Implementación del algoritmo KMP básico – Diego
+
+    Mejora del algoritmo Boyer-Moore y carga de datos – Manuel
+
+    Implementación del tercer algoritmo de búsqueda – Claudio
+
+    Desarrollo de la segunda estructura de datos para indexación – Diego
+
+    Inicio del informe del proyecto
+
+📅 Del 7 al 10 de junio
+
+    Comienzo del sistema de análisis de documentos desde la línea de comandos
+
+    Preprocesamiento del texto (¡Listo!)
+
+    Indexación de documentos
+
+    Creación del motor de búsqueda (palabras y frases desde terminal)
+
+    Análisis de texto:
+
+        Estadísticas de palabras
+
+        Detección de palabras clave
+
+        Análisis de similitud
+
+    Inicio de la presentación del proyecto
+
+📅 Del 11 al 15 de junio
+
+    Mejoras generales del código
+
+    Finalización del informe
+
+    Finalización de la presentación
+
+    Finalización de los módulos restantes
+
 
 ## Integrantes 📌
 

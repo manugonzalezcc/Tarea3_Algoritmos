@@ -19,14 +19,11 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 folders:
-	mkdir -p $(OBJ_DIR)
-	mkdir -p $(BUILD_DIR)
+	mkdir -p $(OBJ_DIR) $(BUILD_DIR)
 
 clean:
-	rm -rf $(OBJ_DIR) $(BUILD_DIR)
+	rm -rf $(OBJ_DIR)/*.o $(TARGET)
 
 run:
-	./$(TARGET)
+	cd build && ./program -f ../docs/doc1.html --kmp --pattern documento && cd ..
 
-.PHONY: all clean run folders
-.PRECIOUS: $(OBJ_DIR)/%.o

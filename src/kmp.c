@@ -52,7 +52,7 @@ int kmp_search(const char *text, const char *pattern)
     computeLPS(pattern, M, lps);
 
     int i = 0; // indice para el texto
-    int j = 0; // indice para el patrón
+    int j = 0; // indice del texto
     int count = 0;
 
     while (i < n)
