@@ -27,7 +27,7 @@ char *load(const char *route)
     normalize_text(buffer);
 
     char stopwords[MAX_STOPWORDS][32];
-    int count = load_stopwords("../stopwords-es.txt", stopwords, MAX_STOPWORDS);
+    int count = load_stopwords("stopwords-es.txt", stopwords, MAX_STOPWORDS);
     delete_stopwords(buffer, stopwords, count);
 
     return buffer;

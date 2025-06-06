@@ -1,26 +1,48 @@
 .
 ├── Makefile
 ├── README.md
-├── algoritmos.txt
+├── build
+│   └── program
 ├── docs
 │   ├── doc1.html
 │   ├── doc2.html
-│   └── proy3.pdf
+│   ├── proy3.pdf
+│   └── texto.txt
 ├── incs
 │   ├── boyer_moore.h
 │   ├── hash.h
 │   ├── help.h
+│   ├── inverted_index.h
+│   ├── kmp.h
 │   ├── libs.h
 │   ├── load.h
-│   ├── search.h
+│   ├── shift_and.h
 │   └── tokenizer.h
-└── src
-    ├── boyer_moore.c
-    ├── hash.c
-    ├── help.c
-    ├── load.c
-    ├── main.c
-    ├── search.c
-    └── tokenizer.c
+├── obj
+│   ├── boyer_moore.o
+│   ├── hash.o
+│   ├── help.o
+│   ├── inverted_index.o
+│   ├── kmp.o
+│   ├── load.o
+│   ├── main.o
+│   ├── shift_and.o
+│   ├── stopwords.o
+│   └── tokenizer.o
+├── resultados_kmp.csv
+├── run.sh
+├── src
+│   ├── boyer_moore.c
+│   ├── hash.c
+│   ├── help.c
+│   ├── inverted_index.c
+│   ├── kmp.c
+│   ├── load.c
+│   ├── main.c
+│   ├── shift_and.c
+│   ├── stopwords.c
+│   └── tokenizer.c
+├── stopwords-es.txt
+└── tree.txt
 
-4 directories, 20 files
+6 directories, 40 files

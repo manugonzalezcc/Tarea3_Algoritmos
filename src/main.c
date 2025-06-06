@@ -133,7 +133,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    if ((use_kmp || use_bm) && pattern == NULL)
+    if ((use_kmp || use_bm || use_algoritmo3) && pattern == NULL)
     {
         fprintf(stderr, "Debes especificar un patrón con --pattern \"palabra\"\n");
         return 1;
@@ -148,7 +148,6 @@ int main(int argc, char *argv[])
         fprintf(stdout, "Ejecutando búsqueda con KMP...\n");
 
         normalize_text(pattern);
-
         build_hash_table(contenido);
 
         printf("Tabla hash con frecuencia de palabras:\n");
@@ -161,16 +160,25 @@ int main(int argc, char *argv[])
     }
     else if (use_bm)
     {
-        int ocurrencias = boyer_moore_bad_char(contenido, pattern);
-        printf("Boyer-Moore: El patrón '%s' aparece %d veces en el texto.\n", pattern, ocurrencias);
+        fprintf(stdout, "Ejecutando búsqueda con Boyer-Moore...\n");
+        int ocurrencias = boyer_moore_bad_char(contenido, pattern, file);
+        printf("La palabra '%s' aparece %d veces en el texto.\n", pattern, ocurrencias);
     }
     else if (use_algoritmo3)
     {
-        printf("Ejecutando búsqueda con algoritmo3...\n");
+        fprintf(stdout, "Ejecutando búsqueda con Shift-And...\n");
+
+        if (strlen(pattern) > 31)
+        {
+            fprintf(stderr, "Shift-And solo soporta patrones de hasta 31 caracteres.\n");
+            return 1;
+        }
+
+        int ocurrencias = shift_and_search(contenido, pattern, file);
+        printf("La palabra '%s' aparece %d veces en el texto.\n", pattern, ocurrencias);
     }
 
     liberar_tokens(tokens);
     free(contenido);
-
     return 0;
 }

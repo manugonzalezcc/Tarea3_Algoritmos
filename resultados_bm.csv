@@ -1,0 +1,5 @@
+algoritmo,archivo,patron,comparaciones,accesos_memoria,tiempo_ms
+boyermoore,docs/doc2.html,texto,-1,-1,0.003
+boyermoore,docs/doc2.html,texto,-1,-1,0.002
+boyermoore,docs/doc2.html,texto,96,605,0.003
+boyermoore,docs/doc2.html,texto,96,605,0.002
