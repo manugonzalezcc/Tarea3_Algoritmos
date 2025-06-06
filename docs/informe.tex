@@ -1,0 +1,134 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% --------------------------------------------------------
+% Rho
+% LaTeX Template
+% Version 2.1.1 (01/09/2024)
+%
+% Authors: 
+% Guillermo Jimenez (memo.notess1@gmail.com)
+% Eduardo Gracidas (eduardo.gracidas29@gmail.com)
+% 
+% License:
+% Creative Commons CC BY 4.0
+% --------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[9pt,letterpaper,onecolumn]{rho-class/rho}
+\usepackage[spanish,es-nodecimaldot,es-noindentfirst]{babel}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\setbool{rho-abstract}{true}
+\setbool{corres-info}{true}
+
+%----------------------------------------------------------
+% TITLE
+%----------------------------------------------------------
+
+\title{}
+
+%----------------------------------------------------------
+% AUTHORS AND AFFILIATIONS
+%----------------------------------------------------------
+
+\author[$\dagger$]{Diego Sanhueza}
+\author[$\dagger$]{Manuel González}
+\author[$\dagger$]{Claudio Matulich}
+
+%----------------------------------------------------------
+
+\affil[$\dagger$]{Universidad de Magallanes}
+
+%----------------------------------------------------------
+% DATES
+%----------------------------------------------------------
+
+\dates{\today}
+
+%----------------------------------------------------------
+% FOOTER INFORMATION
+%----------------------------------------------------------
+
+\smalltitle{Diseño de Algoritmos - PR3}
+
+%----------------------------------------------------------
+% ARTICLE INFORMATION
+%----------------------------------------------------------
+
+%----------------------------------------------------------
+% ABSTRACT
+%----------------------------------------------------------
+
+\begin{abstract}
+%Resumen del informe
+\end{abstract}
+
+%----------------------------------------------------------
+
+\begin{document}
+\maketitle
+\thispagestyle{firststyle}
+\tableofcontents
+
+%----------------------------------------------------------
+
+\section{Introducción}
+Descripción general del proyecto, motivación y contexto.
+
+\section{Objetivos}
+\begin{itemize}
+    \item Implementar algoritmos avanzados de búsqueda de patrones en texto.
+    \item Desarrollar estructuras de datos eficientes para indexación y recuperación de información.
+    \item Analizar empíricamente la complejidad y rendimiento de los algoritmos.
+    \item Aplicar los algoritmos a un problema práctico de procesamiento de documentos.
+    \item Implementar técnicas de preprocesamiento de texto para mejorar la eficiencia de búsqueda.
+    \item Documentar adecuadamente el código y los resultados del análisis.
+\end{itemize}
+
+\section{Descripción del Proyecto}
+Explicación del problema a resolver, alcance y requisitos principales.
+
+\section{Requisitos Técnicos}
+\subsection{Algoritmos de Búsqueda de Patrones}
+Descripción de los algoritmos implementados (KMP, Boyer-Moore, Shift-And, etc.), detalles de implementación y optimizaciones.
+
+\subsection{Estructuras de Datos para Indexación}
+Explicación de las estructuras usadas (Trie, índice invertido, tabla hash, filtro de Bloom, etc.).
+
+\subsection{Técnicas de Preprocesamiento de Texto}
+Descripción de las técnicas aplicadas (tokenización, normalización, stopwords, stemming, etc.).
+
+\subsection{Framework de Análisis de Rendimiento}
+Cómo se midió el rendimiento, qué métricas se usaron y cómo se generaron los datos de prueba.
+
+\section{Desarrollo del Sistema}
+\subsection{Carga y Preprocesamiento de Documentos}
+Soporte para archivos de texto y HTML, extracción de texto y metadatos.
+
+\subsection{Indexación de Documentos}
+Construcción y actualización de índices, persistencia.
+
+\subsection{Motor de Búsqueda}
+Búsqueda exacta, aproximada, consultas booleanas, ranking de resultados.
+
+\subsection{Análisis de Texto}
+Estadísticas, palabras clave, similitud entre documentos.
+
+\subsection{Interfaz de Línea de Comandos}
+Descripción de los comandos, flags, formato de salida y ayuda.
+
+\section{Pruebas y Resultados Experimentales}
+Presentación de los experimentos, casos de prueba, resultados, tablas y gráficos comparativos.
+
+\section{Discusión y Conclusiones}
+Análisis de los resultados, dificultades, posibles mejoras y conclusiones finales.
+
+\section{Referencias}
+\begin{itemize}
+    \item 
+    \item 
+    \item 
+\end{itemize}
+
+\end{document}

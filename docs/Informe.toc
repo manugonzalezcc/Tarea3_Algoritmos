@@ -1,0 +1,19 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Introducción}{1}{section.1}%
+\contentsline {section}{\numberline {2}Objetivos}{1}{section.2}%
+\contentsline {section}{\numberline {3}Descripción del Proyecto}{1}{section.3}%
+\contentsline {section}{\numberline {4}Requisitos Técnicos}{1}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Algoritmos de Búsqueda de Patrones}{1}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Estructuras de Datos para Indexación}{1}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Técnicas de Preprocesamiento de Texto}{2}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Framework de Análisis de Rendimiento}{2}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Desarrollo del Sistema}{2}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Carga y Preprocesamiento de Documentos}{2}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Indexación de Documentos}{2}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Motor de Búsqueda}{2}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Análisis de Texto}{2}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Interfaz de Línea de Comandos}{2}{subsection.5.5}%
+\contentsline {section}{\numberline {6}Pruebas y Resultados Experimentales}{2}{section.6}%
+\contentsline {section}{\numberline {7}Discusión y Conclusiones}{2}{section.7}%
+\contentsline {section}{\numberline {8}Referencias}{2}{section.8}%
+\contentsfinish 
