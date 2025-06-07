@@ -24,6 +24,7 @@ int main(int argc, char *argv[])
         {"file", required_argument, 0, 'f'},
         {"verbose", no_argument, 0, 'v'},
         {"help", no_argument, 0, 'h'},
+        {"in", required_argument, 0, 'i'},
         {"kmp", no_argument, 0, 1},
         {"bm", no_argument, 0, 2},
         {"algoritmo3", no_argument, 0, 3},
@@ -46,6 +47,9 @@ int main(int argc, char *argv[])
             print_help(argv[0]);
             return 0;
         case 'q':
+            consulta = optarg;
+            break;
+        case 'i':
             consulta = optarg;
             break;
         case 1:
@@ -72,12 +76,6 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    if (!use_kmp && !use_bm && !use_algoritmo3)
-    {
-        fprintf(stderr, "Debes especificar uno de: --kmp, --bm, --algoritmo3\n");
-        return 1;
-    }
-
     char *contenido = load(file);
     if (!contenido)
     {
@@ -101,36 +99,24 @@ int main(int argc, char *argv[])
 
     if (consulta != NULL)
     {
-        for (int i = 0; consulta[i]; i++)
+        void build_hash_table(char *texto);
+        int is_in_text(const char *word_to_search);
+
+        char *text_normalized = load(file);
+        build_hash_table(text_normalized);
+        normalize_text(consulta);
+        int existe = is_in_text(consulta);
+
+        if (existe == 1)
         {
-            consulta[i] = tolower(consulta[i]);
+            printf("La palabra '%s' está en el texto '%s.\n", consulta, file);
+        }
+        else
+        {
+            printf("La palabra '%s' NO está en el texto '%s.\n", consulta, file);
         }
 
-        printf("\nConsulta: '%s'\n", consulta);
-        int h = hash_indice(consulta);
-        NodoIndice *nodo = indiceInvertido[h];
-        int encontrado = 0;
-
-        while (nodo)
-        {
-            if (strcmp(nodo->palabra, consulta) == 0)
-            {
-                printf("La palabra '%s' aparece en las posiciones: ", consulta);
-                for (int i = 0; i < nodo->cantidad; i++)
-                {
-                    printf("%d ", nodo->posiciones[i]);
-                }
-                printf("\n");
-                encontrado = 1;
-                break;
-            }
-            nodo = nodo->siguiente;
-        }
-
-        if (!encontrado)
-        {
-            printf("La palabra '%s' no fue encontrada en el índice.\n", consulta);
-        }
+        free(text_normalized);
     }
 
     if ((use_kmp || use_bm || use_algoritmo3) && pattern == NULL)

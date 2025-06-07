@@ -82,3 +82,19 @@ int word_frequency(const char *word_to_search)
 
     return 0;
 }
+
+int is_in_text(const char *word_to_search)
+{
+    int h = hash((char *)word_to_search);
+    Node *temp = tablaHash[h];
+
+    while (temp)
+    {
+        if (strcmp(temp->word, word_to_search) == 0)
+        {
+            return 1;
+        }
+        temp = temp->next;
+    }
+    return -1;
+}
