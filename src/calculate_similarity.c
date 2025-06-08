@@ -13,17 +13,17 @@ float calculate_similarity(ListaTokens a, ListaTokens b)
     {
         int h = hash(a.tokens[i]);
         Node *temp = tablaHash[h];
-        int repetido = 0;
+        int repeated = 0;
         while (temp)
         {
             if (strcmp(temp->word, a.tokens[i]) == 0)
             {
-                repetido = 1;
+                repeated = 1;
                 break;
             }
             temp = temp->next;
         }
-        if (!repetido)
+        if (!repeated)
         {
             insert(a.tokens[i]);
             unique_total++;
