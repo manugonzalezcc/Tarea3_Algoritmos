@@ -2,12 +2,30 @@
 
 void print_help(const char *prog_name)
 {
-    printf("Uso del programa: ./run.sh -f <ruta_archivo> --algoritmo --pattern \"patron a buscar\"\n");
-    printf("Opciones:\n");
-    printf("  -f <archivo> --in <palabra> Detecta si la palabra esta en el texto a buscar.\n");
-    printf("  -f <ruta_archivo> --(kmp/bm/algoritmo3) --word <palabrar> Busca la palabra dentro del texto con el algoritmo elegido.\n");
-    printf("  -f <ruta_archivo> --(kmp/bm/algoritmo3) --pattern \"patron a buscar\" Busca el patrón dentro del texto con el algoritmo elegido.\n");
-    printf("  --compare <ruta_archivo_1> <ruta_archivo_2> Analiza la similitud entre los documentos.\n");
-    printf("  -f <ruta_archivo> --d Detecta palabras clave. (implementando.....)\n");
-    printf("  -h, --help         Mostrar esta ayuda y salir\n");
+    printf(RED "██╗  ██╗███████╗██╗     ██╗      ██████╗ \n");
+    printf(ORANGE "██║  ██║██╔════╝██║     ██║     ██╔═══██╗\n");
+    printf(YELLOW "███████║█████╗  ██║     ██║     ██║   ██║\n");
+    printf(GREEN "██╔══██║██╔══╝  ██║     ██║     ██║   ██║\n");
+    printf(CYAN "██║  ██║███████╗███████╗███████╗╚██████╔╝\n");
+    printf(BLUE "╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝ ╚═════╝ \n");
+    printf(MAGENTA "              ¡Bienvenido al motor de búsqueda!\n" RESET);
+    printf("\n");
+
+    printf(YELLOW "        |\\__/,|   (`\\\n");
+    printf(YELLOW "      _.|o o  |_   ) )\n");
+    printf(YELLOW "    -(((---(((--------\n");
+    printf(MAGENTA "       /    " RESET CYAN "HELLO!" RESET MAGENTA "   \\\n");
+    printf(RESET);
+
+    printf(CYAN "╔════════════════════════════════════════════════════════════════════════════╗\n" RESET);
+    printf(CYAN "║" RESET "   " GREEN "Uso del programa:" RESET " ./run.sh + opciones                                      " CYAN "║\n" RESET);
+    printf(CYAN "╠════════════════════════════════════════════════════════════════════════════╣\n" RESET);
+    printf(CYAN "║" RESET "  " YELLOW "-f <archivo> --in <palabra>" RESET "         Detecta si la palabra está en el texto.      " CYAN "║\n" RESET);
+    printf(CYAN "║" RESET "  " YELLOW "-f <archivo> --(kmp/bm/algoritmo3) --word <palabra>" RESET "   Busca palabra con algoritmo. " CYAN "║\n" RESET);
+    printf(CYAN "║" RESET "  " YELLOW "-f <archivo> --(kmp/bm/algoritmo3) --pattern \"patrón\"" RESET "   Busca patrón con algoritmo.  " CYAN "║\n" RESET);
+    printf(CYAN "║" RESET "       (el patrón debe ir entre comillas)                                                " CYAN "║\n" RESET);
+    printf(CYAN "║" RESET "  " YELLOW "--compare <archivo1> <archivo2>" RESET "      Analiza similitud entre documentos.       " CYAN "║\n" RESET);
+    printf(CYAN "║" RESET "  " YELLOW "-f <archivo> --d" RESET "                       Detecta palabras clave (en desarrollo).   " CYAN "║\n" RESET);
+    printf(CYAN "║" RESET "  " YELLOW "-h, --help" RESET "                            Mostrar esta ayuda y salir.               " CYAN "║\n" RESET);
+    printf(CYAN "╚════════════════════════════════════════════════════════════════════════════╝\n" RESET);
 }
