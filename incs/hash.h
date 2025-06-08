@@ -19,5 +19,6 @@ void printf_hash_table(void);
 void build_hash_table(char *texto);
 int word_frequency(const char *palabra_buscada);
 int is_in_text(const char *word_to_search);
+void clear_hash_table();
 
 #endif

@@ -48,3 +48,17 @@ void delete_stopwords(char *texto, char stopwords[][32], int count)
     strcpy(texto, resultado);
     free(resultado);
 }
+
+void stopwords(char *texto, const char *ruta_stopwords)
+{
+    char stopwords[MAX_STOPWORDS][32];
+    int quantity = load_stopwords(ruta_stopwords, stopwords, MAX_STOPWORDS);
+
+    if (quantity == 0)
+    {
+        fprintf(stderr, "No se pudieron cargar las stopwords.\n");
+        return;
+    }
+
+    delete_stopwords(texto, stopwords, quantity);
+}

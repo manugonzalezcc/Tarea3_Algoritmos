@@ -98,3 +98,18 @@ int is_in_text(const char *word_to_search)
     }
     return -1;
 }
+
+void clear_hash_table()
+{
+    for (int i = 0; i < SIZE; i++)
+    {
+        Node *temp = tablaHash[i];
+        while (temp)
+        {
+            Node *next = temp->next;
+            free(temp);
+            temp = next;
+        }
+        tablaHash[i] = NULL;
+    }
+}

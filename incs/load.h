@@ -16,4 +16,6 @@ int is_stopword(const char *palabra, char stopwords[][32], int count);
 
 void delete_stopwords(char *texto, char stopwords[][32], int count);
 
+void stopwords(char *texto, const char *ruta_stopwords);
+
 #endif

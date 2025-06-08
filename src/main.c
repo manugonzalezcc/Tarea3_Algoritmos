@@ -8,6 +8,7 @@
 #include "inverted_index.h"
 #include "kmp.h"
 #include "hash.h"
+#include "similarity.h"
 
 int main(int argc, char *argv[])
 {
@@ -18,8 +19,11 @@ int main(int argc, char *argv[])
     int use_kmp = 0;
     int use_bm = 0;
     int use_algoritmo3 = 0;
+    int compare = 0;
     char *pattern = NULL;
     char *word = NULL;
+    char *file_compare_1 = NULL;
+    char *file_compare_2 = NULL;
 
     static struct option long_options[] = {
         {"file", required_argument, 0, 'f'},
@@ -30,7 +34,8 @@ int main(int argc, char *argv[])
         {"bm", no_argument, 0, 2},
         {"algoritmo3", no_argument, 0, 3},
         {"word", required_argument, 0, 4},
-        {"pattern", required_argument, 0, 4},
+        {"pattern", required_argument, 0, 5},
+        {"compare", required_argument, 0, 6},
         {0, 0, 0, 0}};
 
     int long_index = 0;
@@ -69,60 +74,19 @@ int main(int argc, char *argv[])
         case 5:
             pattern = optarg;
             break;
+        case 6:
+            compare = 1;
+            file_compare_1 = optarg;
+            file_compare_2 = argv[optind];
+            break;
+
         default:
             fprintf(stderr, "Uso: %s -f <file> [-kmp | -bm | -algoritmo3]\n", argv[0]);
             return 1;
         }
     }
 
-    if (file == NULL)
-    {
-        fprintf(stderr, "El parámetro -f <file> es obligatorio.\n");
-        return 1;
-    }
-
-    char *contenido = load(file);
-    if (!contenido)
-    {
-        fprintf(stderr, "Error al cargar el archivo.\n");
-        return 1;
-    }
-
-    clean_html(contenido);
-    ListaTokens tokens = tokenizar_texto(contenido);
-
-    for (int i = 0; i < tokens.cantidad; i++)
-    {
-        agregar_al_indice(tokens.tokens[i], i);
-    }
-
-    if (verbose)
-    {
-        printf("\nÍndice invertido:\n");
-        imprimir_indice();
-    }
-
-    if (consulta != NULL)
-    {
-        void build_hash_table(char *texto);
-        int is_in_text(const char *word_to_search);
-
-        char *text_normalized = load(file);
-        build_hash_table(text_normalized);
-        normalize_text(consulta);
-        int existe = is_in_text(consulta);
-
-        if (existe == 1)
-        {
-            printf("La palabra '%s' está en el texto '%s.\n", consulta, file);
-        }
-        else
-        {
-            printf("La palabra '%s' NO está en el texto '%s.\n", consulta, file);
-        }
-
-        free(text_normalized);
-    }
+    char *content = load(file);
 
     if ((use_kmp || use_bm || use_algoritmo3) && (pattern || word) == NULL)
     {
@@ -143,28 +107,31 @@ int main(int argc, char *argv[])
         else
             normalize_text(word);
 
-        build_hash_table(contenido);
-
-        printf("Tabla hash con frecuencia de palabras:\n");
-        printf_hash_table();
-
         if (pattern)
         {
-            occurrences = word_frequency(pattern);
-            kmp_search(contenido, pattern);
-            printf("El patrón '%s' aparece %d veces en el texto.\n", pattern, occurrences);
+            int count = kmp_search(content, pattern);
+            printf("El patrón '%s' aparece %d veces en el texto (por KMP).\n", pattern, count);
         }
         else
         {
+            stopwords(content, "stopwords-es.txt");
+            build_hash_table(content);
             occurrences = word_frequency(word);
-            kmp_search(contenido, word);
+            kmp_search(content, word);
             printf("La palabra '%s' aparece %d veces en el texto.\n", word, occurrences);
         }
+
+        // esto puede ser una opcion extra para mostrar la tabla hash construida
+        // stopwords(content, "stopwords-es.txt");
+        // build_hash_table(content);
+
+        // printf("Tabla hash con frecuencia de palabras:\n");
+        // printf_hash_table();
     }
     else if (use_bm)
     {
         fprintf(stdout, "Ejecutando búsqueda con Boyer-Moore...\n");
-        int ocurrencias = boyer_moore_bad_char(contenido, pattern, file);
+        int ocurrencias = boyer_moore_bad_char(content, pattern, file);
         printf("La palabra '%s' aparece %d veces en el texto.\n", pattern, ocurrencias);
     }
     else if (use_algoritmo3)
@@ -177,11 +144,44 @@ int main(int argc, char *argv[])
             return 1;
         }
 
-        int ocurrencias = shift_and_search(contenido, pattern, file);
+        int ocurrencias = shift_and_search(content, pattern, file);
         printf("La palabra '%s' aparece %d veces en el texto.\n", pattern, ocurrencias);
     }
+    if (compare)
+    {
+        char *content1 = load(file_compare_1);
+        char *content2 = load(file_compare_2);
 
-    liberar_tokens(tokens);
-    free(contenido);
+        if (!content1 || !content2)
+        {
+            fprintf(stderr, "Error al cargar uno de los archivos para comparación.\n");
+            return 1;
+        }
+
+        clean_html(content1);
+        clean_html(content2);
+
+        ListaTokens tokens1 = tokenizar_texto(content1);
+        ListaTokens tokens2 = tokenizar_texto(content2);
+
+        float similitud = calculate_similarity(tokens1, tokens2);
+        printf("Similitud: %.2f\n", similitud);
+
+        if (similitud > 0.5)
+        {
+            printf("Los textos son bastante similares.\n");
+        }
+        else
+        {
+            printf("Los textos no son tan similares.\n");
+        }
+
+        liberar_tokens(tokens1);
+        liberar_tokens(tokens2);
+        free(content1);
+        free(content2);
+    }
+
+    free(content);
     return 0;
 }
