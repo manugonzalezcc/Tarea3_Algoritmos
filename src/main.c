@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
     int use_bm = 0;
     int use_algoritmo3 = 0;
     char *pattern = NULL;
+    char *word = NULL;
 
     static struct option long_options[] = {
         {"file", required_argument, 0, 'f'},
@@ -28,6 +29,7 @@ int main(int argc, char *argv[])
         {"kmp", no_argument, 0, 1},
         {"bm", no_argument, 0, 2},
         {"algoritmo3", no_argument, 0, 3},
+        {"word", required_argument, 0, 4},
         {"pattern", required_argument, 0, 4},
         {0, 0, 0, 0}};
 
@@ -62,6 +64,9 @@ int main(int argc, char *argv[])
             use_algoritmo3 = 1;
             break;
         case 4:
+            word = optarg;
+            break;
+        case 5:
             pattern = optarg;
             break;
         default:
@@ -119,30 +124,42 @@ int main(int argc, char *argv[])
         free(text_normalized);
     }
 
-    if ((use_kmp || use_bm || use_algoritmo3) && pattern == NULL)
+    if ((use_kmp || use_bm || use_algoritmo3) && (pattern || word) == NULL)
     {
-        fprintf(stderr, "Debes especificar un patrón con --pattern \"palabra\"\n");
+        fprintf(stderr, "Debes especificar el patrón o palabra a buscar.");
         return 1;
     }
-
     if (use_kmp)
     {
         void build_hash_table(char *text);
         void printf_hash_table(void);
         int word_frequency(const char *word_to_search);
+        int occurrences = 0;
 
         fprintf(stdout, "Ejecutando búsqueda con KMP...\n");
 
-        normalize_text(pattern);
+        if (pattern)
+            normalize_text(pattern);
+        else
+            normalize_text(word);
+
         build_hash_table(contenido);
 
         printf("Tabla hash con frecuencia de palabras:\n");
         printf_hash_table();
 
-        int ocurrencias = word_frequency(pattern);
-        kmp_search(contenido, pattern);
-
-        printf("La palabra '%s' aparece %d veces en el texto.\n", pattern, ocurrencias);
+        if (pattern)
+        {
+            occurrences = word_frequency(pattern);
+            kmp_search(contenido, pattern);
+            printf("El patrón '%s' aparece %d veces en el texto.\n", pattern, occurrences);
+        }
+        else
+        {
+            occurrences = word_frequency(word);
+            kmp_search(contenido, word);
+            printf("La palabra '%s' aparece %d veces en el texto.\n", word, occurrences);
+        }
     }
     else if (use_bm)
     {
