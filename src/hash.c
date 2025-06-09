@@ -113,3 +113,45 @@ void clear_hash_table()
         tablaHash[i] = NULL;
     }
 }
+void printf_top_from_hash_table()
+{
+    Node *nodos[1000];
+    int count = 0;
+    int limit = 10;
+
+    for (int i = 0; i < SIZE; i++)
+    {
+        Node *temp = tablaHash[i];
+        while (temp && count < 1000)
+        {
+            nodos[count++] = temp;
+            temp = temp->next;
+        }
+    }
+
+    for (int i = 0; i < count - 1; i++)
+    {
+        for (int j = i + 1; j < count; j++)
+        {
+            if (nodos[j]->frequency > nodos[i]->frequency)
+            {
+                Node *tmp = nodos[i];
+                nodos[i] = nodos[j];
+                nodos[j] = tmp;
+            }
+        }
+    }
+
+    int printed = 0;
+    int i = 0;
+
+    while (printed < limit && i < count)
+    {
+        if (nodos[i]->frequency > 2)
+        {
+            printf("'%s' -> %d\n", nodos[i]->word, nodos[i]->frequency);
+            printed++;
+        }
+        i++;
+    }
+}

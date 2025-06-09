@@ -20,6 +20,8 @@ int main(int argc, char *argv[])
     int use_bm = 0;
     int use_algoritmo3 = 0;
     int compare = 0;
+    int detect = 0;
+    int top = 0;
     char *pattern = NULL;
     char *word = NULL;
     char *file_compare_1 = NULL;
@@ -36,6 +38,8 @@ int main(int argc, char *argv[])
         {"word", required_argument, 0, 4},
         {"pattern", required_argument, 0, 5},
         {"compare", required_argument, 0, 6},
+        {"detect", no_argument, 0, 7},
+
         {0, 0, 0, 0}};
 
     int long_index = 0;
@@ -79,6 +83,9 @@ int main(int argc, char *argv[])
             file_compare_1 = optarg;
             file_compare_2 = argv[optind];
             break;
+        case 7:
+            detect = 1;
+            break;
 
         default:
             fprintf(stderr, "Uso: %s -f <file> [-kmp | -bm | -algoritmo3]\n", argv[0]);
@@ -87,6 +94,11 @@ int main(int argc, char *argv[])
     }
 
     char *content = load(file);
+
+    if (!file)
+    {
+        perror("No se pudo abrir el archivo!");
+    }
 
     if ((use_kmp || use_bm || use_algoritmo3) && (pattern || word) == NULL)
     {
@@ -180,6 +192,14 @@ int main(int argc, char *argv[])
         liberar_tokens(tokens2);
         free(content1);
         free(content2);
+    }
+    if (detect)
+    {
+        void printf_top_from_hash_table();
+
+        stopwords(content, "stopwords-es.txt");
+        build_hash_table(content);
+        printf_top_from_hash_table();
     }
 
     free(content);
