@@ -3,7 +3,8 @@
 
 #include "libs.h"
 
-typedef struct NodoIndice {
+typedef struct NodoIndice
+{
     char palabra[100];
     int *posiciones;
     int cantidad;

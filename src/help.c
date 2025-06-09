@@ -1,4 +1,5 @@
 #include "help.h"
+#include "libs.h"
 
 void print_help(const char *prog_name)
 {
@@ -26,6 +27,7 @@ void print_help(const char *prog_name)
     printf(CYAN "║" RESET "       (el patrón debe ir entre comillas)                                                " CYAN "║\n" RESET);
     printf(CYAN "║" RESET "  " YELLOW "--compare <archivo1> <archivo2>" RESET "      Analiza similitud entre documentos.       " CYAN "║\n" RESET);
     printf(CYAN "║" RESET "  " YELLOW "-f <archivo> --detect" RESET "                       Detecta palabras clave.   " CYAN "║\n" RESET);
+    printf(CYAN "║" RESET "  " YELLOW "-f <archivo> --proximity <palabra> --tolerance <numero>" RESET "           Mide la proximidad de la palabra con la tolerancia indicada. .   " CYAN "║\n" RESET);
     printf(CYAN "║" RESET "  " YELLOW "-h, --help" RESET "                            Mostrar esta ayuda y salir.               " CYAN "║\n" RESET);
     printf(CYAN "╚════════════════════════════════════════════════════════════════════════════╝\n" RESET);
 }

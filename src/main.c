@@ -9,18 +9,22 @@
 #include "kmp.h"
 #include "hash.h"
 #include "similarity.h"
+#include "levenshtein.h"
 
 int main(int argc, char *argv[])
 {
     int opt;
     char *file = NULL;
     int verbose = 0;
-    char *consulta = NULL;
+    char *word_to_search = NULL;
+    char *word_to_search_proximity = NULL;
     int use_kmp = 0;
     int use_bm = 0;
     int use_algoritmo3 = 0;
     int compare = 0;
     int detect = 0;
+    int proximity = 0;
+    int tolerance;
     int top = 0;
     char *pattern = NULL;
     char *word = NULL;
@@ -39,6 +43,8 @@ int main(int argc, char *argv[])
         {"pattern", required_argument, 0, 5},
         {"compare", required_argument, 0, 6},
         {"detect", no_argument, 0, 7},
+        {"proximity", required_argument, 0, 8},
+        {"tolerance", required_argument, 0, 9},
 
         {0, 0, 0, 0}};
 
@@ -58,10 +64,10 @@ int main(int argc, char *argv[])
             print_help(argv[0]);
             return 0;
         case 'q':
-            consulta = optarg;
+            // consulta = optarg;
             break;
         case 'i':
-            consulta = optarg;
+            word_to_search = optarg;
             break;
         case 1:
             use_kmp = 1;
@@ -86,6 +92,13 @@ int main(int argc, char *argv[])
         case 7:
             detect = 1;
             break;
+        case 8:
+            proximity = 1;
+            word_to_search_proximity = optarg;
+            break;
+        case 9:
+            tolerance = atoi(optarg);
+            break;
 
         default:
             fprintf(stderr, "Uso: %s -f <file> [-kmp | -bm | -algoritmo3]\n", argv[0]);
@@ -95,6 +108,21 @@ int main(int argc, char *argv[])
 
     char *content = load(file);
 
+    if (word_to_search)
+    {
+        void build_hash_table(char *text);
+        int is_in_text(const char *word_to_search);
+
+        normalize_text(word_to_search);
+        build_hash_table(content);
+
+        int answer = is_in_text(word_to_search);
+
+        if (answer == -1)
+            printf(RED "✘ La palabra \"%s\" " RESET "NO está en el texto " CYAN "%s" RESET ".\n", word_to_search, file);
+        else
+            printf(GREEN "✔ La palabra \"%s\" " RESET "SI " GREEN "está " RESET "en el texto " CYAN "%s" RESET ".\n", word_to_search, file);
+    }
     if (!file)
     {
         perror("No se pudo abrir el archivo!");
@@ -200,6 +228,11 @@ int main(int argc, char *argv[])
         stopwords(content, "stopwords-es.txt");
         build_hash_table(content);
         printf_top_from_hash_table();
+    }
+    if (proximity)
+    {
+        normalize_text(word_to_search_proximity);
+        buscar_palabras_similares(content, word_to_search_proximity, tolerance);
     }
 
     free(content);

@@ -31,18 +31,23 @@ void insert(char *word)
     new->next = tablaHash[h];
     tablaHash[h] = new;
 }
-
 void printf_hash_table()
 {
+    printf(BLUE "+--------------------------+------------+\n" RESET);
+    printf(BLUE "| Palabra                  | Frecuencia |\n" RESET);
+    printf(BLUE "+--------------------------+------------+\n" RESET);
+
     for (int i = 0; i < SIZE; i++)
     {
         Node *temp = tablaHash[i];
         while (temp)
         {
-            printf("'%s' -> %d\n", temp->word, temp->frequency);
+            printf("| " YELLOW "%-24s" RESET " | " CYAN "%10d" RESET " |\n", temp->word, temp->frequency);
             temp = temp->next;
         }
     }
+
+    printf(BLUE "+--------------------------+------------+\n" RESET);
 }
 
 void build_hash_table(char *texto)
@@ -113,6 +118,7 @@ void clear_hash_table()
         tablaHash[i] = NULL;
     }
 }
+
 void printf_top_from_hash_table()
 {
     Node *nodos[1000];
@@ -142,6 +148,12 @@ void printf_top_from_hash_table()
         }
     }
 
+    printf(BLUE "+--------------------------+------------+\n" RESET);
+    printf(BLUE "| " YELLOW "Top Palabras en la Tabla Hash" BLUE "         |\n" RESET, limit);
+    printf(BLUE "+--------------------------+------------+\n" RESET);
+    printf(BLUE "| Palabra                  | Frecuencia |\n" RESET);
+    printf(BLUE "+--------------------------+------------+\n" RESET);
+
     int printed = 0;
     int i = 0;
 
@@ -149,9 +161,16 @@ void printf_top_from_hash_table()
     {
         if (nodos[i]->frequency > 2)
         {
-            printf("'%s' -> %d\n", nodos[i]->word, nodos[i]->frequency);
+            printf("| " YELLOW "%-24s" RESET " | " CYAN "%10d" RESET " |\n", nodos[i]->word, nodos[i]->frequency);
             printed++;
         }
         i++;
     }
+
+    if (printed == 0)
+    {
+        printf("| " RED "%-24s" RESET " | " RED "%10s" RESET " |\n", "No hay palabras con freq > 2", "");
+    }
+
+    printf(BLUE "+--------------------------+------------+\n" RESET);
 }

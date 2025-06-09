@@ -2,20 +2,26 @@
 
 NodoIndice *indiceInvertido[SIZE_IDX] = {0};
 
-int hash_indice(char *palabra) {
+int hash_indice(char *palabra)
+{
     int hash = 0;
-    for (int i = 0; palabra[i]; i++) {
+    for (int i = 0; palabra[i]; i++)
+    {
         hash = (hash * 31 + palabra[i]) % SIZE_IDX;
     }
     return hash;
 }
 
-void agregar_al_indice(const char *palabra, int posicion) {
+void agregar_al_indice(const char *palabra, int posicion)
+{
     int h = hash_indice((char *)palabra);
     NodoIndice *actual = indiceInvertido[h];
-    while (actual) {
-        if (strcmp(actual->palabra, palabra) == 0) {
-            if (actual->cantidad == actual->capacidad) {
+    while (actual)
+    {
+        if (strcmp(actual->palabra, palabra) == 0)
+        {
+            if (actual->cantidad == actual->capacidad)
+            {
                 actual->capacidad *= 2;
                 actual->posiciones = realloc(actual->posiciones, actual->capacidad * sizeof(int));
             }
@@ -35,12 +41,16 @@ void agregar_al_indice(const char *palabra, int posicion) {
     indiceInvertido[h] = nuevo;
 }
 
-void imprimir_indice() {
-    for (int i = 0; i < SIZE_IDX; i++) {
+void imprimir_indice()
+{
+    for (int i = 0; i < SIZE_IDX; i++)
+    {
         NodoIndice *nodo = indiceInvertido[i];
-        while (nodo != NULL) {
+        while (nodo != NULL)
+        {
             printf("%s: ", nodo->palabra);
-            for (int j = 0; j < nodo->cantidad; j++) {
+            for (int j = 0; j < nodo->cantidad; j++)
+            {
                 printf("%d ", nodo->posiciones[j]);
             }
             printf("\n");
