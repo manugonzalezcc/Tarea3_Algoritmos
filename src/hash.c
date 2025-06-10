@@ -1,6 +1,8 @@
 #include "hash.h"
 #include "libs.h"
 
+Node *tablaHash[SIZE] = {0};
+
 int hash(char *word)
 {
     int hash = 0;
@@ -149,7 +151,7 @@ void printf_top_from_hash_table()
     }
 
     printf(BLUE "+--------------------------+------------+\n" RESET);
-    printf(BLUE "| " YELLOW "Top Palabras en la Tabla Hash" BLUE "         |\n" RESET, limit);
+    printf(BLUE "| " YELLOW "Top Palabras en la Tabla Hash" BLUE "         |\n" RESET);
     printf(BLUE "+--------------------------+------------+\n" RESET);
     printf(BLUE "| Palabra                  | Frecuencia |\n" RESET);
     printf(BLUE "+--------------------------+------------+\n" RESET);

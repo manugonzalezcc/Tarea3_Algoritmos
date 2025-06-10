@@ -104,7 +104,7 @@ int kmp_search(const char *text, const char *pattern)
     printf("Accesos a memoria: %d\n", kmp_accesos_memoria);
     printf("Tiempo de ejecución: %.3f ms\n\n", time_ms);
 
-    FILE *csv = fopen("../resultados_kmp.csv", "a");
+    FILE *csv = fopen("resultados_kmp.csv", "a");
     if (!csv)
     {
         perror("No se pudo abrir resultados_kmp.csv");

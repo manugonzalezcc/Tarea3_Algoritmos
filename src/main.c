@@ -10,6 +10,19 @@
 #include "hash.h"
 #include "similarity.h"
 #include "levenshtein.h"
+#include <limits.h>
+#include <sys/stat.h>
+
+static void ensure_index(const char *ruta_txt, const char *contenido) {
+    char ruta_idx[PATH_MAX];
+    snprintf(ruta_idx, sizeof(ruta_idx), "%s.idx", ruta_txt);
+
+    /* Si existe, simplemente lo cargamos; si no, lo creamos y lo guardamos */
+    if (!load_inverted_index(ruta_idx)) {
+        build_inverted_index(contenido);
+        save_inverted_index(ruta_idx);
+    }
+}
 
 int main(int argc, char *argv[])
 {
@@ -110,32 +123,31 @@ int main(int argc, char *argv[])
 
     if (word_to_search)
     {
-        void build_hash_table(char *text);
-        int is_in_text(const char *word_to_search);
-
         normalize_text(word_to_search);
-        build_hash_table(content);
 
-        int answer = is_in_text(word_to_search);
+        // Usamos índice persistente
+        ensure_index(file, content);
 
-        if (answer == -1)
-            printf(RED "✘ La palabra \"%s\" " RESET "NO está en el texto " CYAN "%s" RESET ".\n", word_to_search, file);
+        if (word_in_index(word_to_search))
+            printf(GREEN "✔ La palabra \"%s\" " RESET "SI " GREEN "está " RESET "en el texto " CYAN "%s" RESET ".\n",
+                word_to_search, file);
         else
-            printf(GREEN "✔ La palabra \"%s\" " RESET "SI " GREEN "está " RESET "en el texto " CYAN "%s" RESET ".\n", word_to_search, file);
+            printf(RED "✘ La palabra \"%s\" " RESET "NO está en el texto " CYAN "%s" RESET ".\n",
+                word_to_search, file);
     }
+
     if (!file)
     {
-        perror("No se pudo abrir el archivo!");
+        //perror("No se pudo abrir el archivo!");
     }
 
-    if ((use_kmp || use_bm || use_algoritmo3) && (pattern || word) == NULL)
+    if ((use_kmp || use_bm || use_algoritmo3) && (pattern == NULL && word == NULL))
     {
         fprintf(stderr, "Debes especificar el patrón o palabra a buscar.");
         return 1;
     }
     if (use_kmp)
     {
-        void build_hash_table(char *text);
         void printf_hash_table(void);
         int word_frequency(const char *word_to_search);
         int occurrences = 0;

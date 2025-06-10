@@ -6,7 +6,6 @@ char *load(const char *route)
     FILE *file = fopen(route, "r");
     if (!file)
     {
-        perror("Error al abrir el file");
         return NULL;
     }
 

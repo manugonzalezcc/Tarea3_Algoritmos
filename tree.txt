@@ -4,9 +4,26 @@
 ├── build
 │   └── program
 ├── docs
+│   ├── Informe.aux
+│   ├── Informe.bcf
+│   ├── Informe.fdb_latexmk
+│   ├── Informe.fls
+│   ├── Informe.log
+│   ├── Informe.pdf
+│   ├── Informe.run.xml
+│   ├── Informe.synctex.gz
+│   ├── Informe.toc
 │   ├── doc1.html
 │   ├── doc2.html
+│   ├── figures
+│   │   └── logo-umag-ing.png
+│   ├── informe.tex
 │   ├── proy3.pdf
+│   ├── rho-class
+│   │   ├── README.md
+│   │   ├── rho.cls
+│   │   ├── rhobabel.sty
+│   │   └── rhoenvs.sty
 │   └── texto.txt
 ├── incs
 │   ├── boyer_moore.h
@@ -14,29 +31,38 @@
 │   ├── help.h
 │   ├── inverted_index.h
 │   ├── kmp.h
+│   ├── levenshtein.h
 │   ├── libs.h
 │   ├── load.h
 │   ├── shift_and.h
+│   ├── similarity.h
 │   └── tokenizer.h
 ├── obj
 │   ├── boyer_moore.o
+│   ├── calculate_similarity.o
 │   ├── hash.o
 │   ├── help.o
 │   ├── inverted_index.o
 │   ├── kmp.o
+│   ├── levenshtein.o
 │   ├── load.o
 │   ├── main.o
 │   ├── shift_and.o
 │   ├── stopwords.o
 │   └── tokenizer.o
+├── resultados_bm.csv
 ├── resultados_kmp.csv
+├── resultados_shiftand.csv
 ├── run.sh
+├── run_tests.sh
 ├── src
 │   ├── boyer_moore.c
+│   ├── calculate_similarity.c
 │   ├── hash.c
 │   ├── help.c
 │   ├── inverted_index.c
 │   ├── kmp.c
+│   ├── levenshtein.c
 │   ├── load.c
 │   ├── main.c
 │   ├── shift_and.c
@@ -45,4 +71,4 @@
 ├── stopwords-es.txt
 └── tree.txt
 
-6 directories, 40 files
+8 directories, 64 files
