@@ -18,16 +18,37 @@ void print_help(const char *prog_name)
     printf(MAGENTA "       /    " RESET CYAN "HELLO!" RESET MAGENTA "   \\\n");
     printf(RESET);
 
-    printf(CYAN "╔════════════════════════════════════════════════════════════════════════════╗\n" RESET);
-    printf(CYAN "║" RESET "   " GREEN "Uso del programa:" RESET " ./run.sh + opciones                                      " CYAN "║\n" RESET);
-    printf(CYAN "╠════════════════════════════════════════════════════════════════════════════╣\n" RESET);
-    printf(CYAN "║" RESET "  " YELLOW "-f <archivo> --in <palabra>" RESET "         Detecta si la palabra está en el texto.      " CYAN "║\n" RESET);
-    printf(CYAN "║" RESET "  " YELLOW "-f <archivo> --(kmp/bm/algoritmo3) --word <palabra>" RESET "   Busca palabra con algoritmo. " CYAN "║\n" RESET);
-    printf(CYAN "║" RESET "  " YELLOW "-f <archivo> --(kmp/bm/algoritmo3) --pattern \"patrón\"" RESET "   Busca patrón con algoritmo.  " CYAN "║\n" RESET);
-    printf(CYAN "║" RESET "       (el patrón debe ir entre comillas)                                                " CYAN "║\n" RESET);
-    printf(CYAN "║" RESET "  " YELLOW "--compare <archivo1> <archivo2>" RESET "      Analiza similitud entre documentos.       " CYAN "║\n" RESET);
-    printf(CYAN "║" RESET "  " YELLOW "-f <archivo> --detect" RESET "                       Detecta palabras clave.   " CYAN "║\n" RESET);
-    printf(CYAN "║" RESET "  " YELLOW "-f <archivo> --proximity <palabra> --tolerance <numero>" RESET "           Mide la proximidad de la palabra con la tolerancia indicada. .   " CYAN "║\n" RESET);
-    printf(CYAN "║" RESET "  " YELLOW "-h, --help" RESET "                            Mostrar esta ayuda y salir.               " CYAN "║\n" RESET);
-    printf(CYAN "╚════════════════════════════════════════════════════════════════════════════╝\n" RESET);
+    printf(CYAN "╔════════════════════════════════════════════════════════════════════════════════════════════╗\n");
+    printf(CYAN "║" RESET "   " GREEN "Uso del programa:" RESET " ./run.sh + opciones                                                    " CYAN "║\n");
+    printf(CYAN "╠════════════════════════════════════════════════════════════════════════════════════════════╣\n");
+
+    printf(CYAN "║" RESET "  " YELLOW "-f <archivo> --in <palabra>" RESET
+                "                      Detecta si la palabra está en el texto.                   " CYAN "║\n");
+
+    printf(CYAN "║" RESET "  " YELLOW "-f <archivo> --(kmp/bm/algoritmo3) --word <palabra>" RESET
+                "    Busca la palabra en el texto.                " CYAN "║\n");
+
+    printf(CYAN "║" RESET "  " YELLOW "-f <archivo> --(kmp/bm/algoritmo3) --pattern \"patrón\"" RESET
+                "        Buscar patrón en el texto.                  " CYAN "║\n");
+
+    printf(CYAN "║" RESET "       (el patrón debe ir entre comillas dobles)                                      " CYAN "║\n");
+
+    printf(CYAN "║" RESET "  " YELLOW "--compare <archivo1> <archivo2>" RESET
+                "                Compara el contenido de dos documentos.              " CYAN "║\n");
+
+    printf(CYAN "║" RESET "  " YELLOW "-f <archivo> --detect" RESET
+                "                               Detecta palabras clave dentro del archivo.      " CYAN "║\n");
+
+    printf(CYAN "║" RESET "  " YELLOW "-f <archivo> --proximity <palabra>" RESET
+                "                                                  " CYAN "║\n");
+    printf(CYAN "║" RESET "            " YELLOW "--tolerance <número>" RESET
+                "                Busca palabras cercanas con margen de error.       " CYAN "║\n");
+
+    printf(CYAN "║" RESET "  " YELLOW "-f <archivo> --index" RESET
+                "                                Muestra índice invertido de palabras.          " CYAN "║\n");
+
+    printf(CYAN "║" RESET "  " YELLOW "-h, --help" RESET
+                "                                     Mostrar esta ayuda del sistema.            " CYAN "║\n");
+
+    printf(CYAN "╚════════════════════════════════════════════════════════════════════════════════════════════╝\n" RESET);
 }

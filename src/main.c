@@ -24,6 +24,7 @@ int main(int argc, char *argv[])
     int compare = 0;
     int detect = 0;
     int proximity = 0;
+    int index = 0;
     int tolerance;
     int top = 0;
     char *pattern = NULL;
@@ -45,6 +46,7 @@ int main(int argc, char *argv[])
         {"detect", no_argument, 0, 7},
         {"proximity", required_argument, 0, 8},
         {"tolerance", required_argument, 0, 9},
+        {"index", no_argument, 0, 10},
 
         {0, 0, 0, 0}};
 
@@ -98,6 +100,9 @@ int main(int argc, char *argv[])
             break;
         case 9:
             tolerance = atoi(optarg);
+            break;
+        case 10:
+            index = 1;
             break;
 
         default:
@@ -233,6 +238,13 @@ int main(int argc, char *argv[])
     {
         normalize_text(word_to_search_proximity);
         buscar_palabras_similares(content, word_to_search_proximity, tolerance);
+    }
+    if (index)
+    {
+        stopwords(content, "stopwords-es.txt");
+        construir_indice(content);
+        printf(CYAN "\n[ Índice de palabras ]\n" RESET);
+        imprimir_indice();
     }
 
     free(content);

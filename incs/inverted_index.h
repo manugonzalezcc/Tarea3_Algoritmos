@@ -18,5 +18,6 @@ extern NodoIndice *indiceInvertido[SIZE_IDX];
 int hash_indice(char *palabra);
 void agregar_al_indice(const char *palabra, int posicion);
 void imprimir_indice();
+void construir_indice(const char *content);
 
 #endif
