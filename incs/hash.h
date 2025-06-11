@@ -8,10 +8,10 @@ typedef struct nodo
 {
     char word[100];
     int frequency;
-    struct node *next;
+    struct nodo *next;
 } Node;
 
-Node *tablaHash[SIZE];
+extern Node *tablaHash[SIZE];
 
 int hash(char *palabra);
 void insert(char *palabra);

@@ -1,7 +1,6 @@
 algoritmo,archivo,patron,comparaciones,accesos_memoria,tiempo_ms
-boyermoore,docs/doc2.html,texto,-1,-1,0.003
-boyermoore,docs/doc2.html,texto,-1,-1,0.002
-boyermoore,docs/doc2.html,texto,96,605,0.003
-boyermoore,docs/doc2.html,texto,96,605,0.002
-boyermoore,docs/doc1.html,doc,135,769,0.004
-boyermoore,docs/doc1.html,doc,135,769,0.004
+boyermoore,docs/doc1.html,documento,109,605,0.005
+boyermoore,docs/doc1.html,texto,133,739,0.006
+boyermoore,docs/doc1.html,analisis,80,550,0.004
+boyermoore,docs/doc1.html,puntuacion,87,574,0.005
+boyermoore,docs/doc1.html,caracteres,72,526,0.004

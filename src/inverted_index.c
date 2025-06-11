@@ -65,6 +65,7 @@ void imprimir_indice()
     }
 
     printf(CYAN "╚══════════════════════════════╩══════════════════════════════════════╝\n\n" RESET);
+    printf("\033[1;32m✔ Persistencia en disco:\033[0m índice generado exitosamente en \033[1;34m\"docs/<archivo>.idx\"\033[0m\n");
 }
 
 void construir_indice(const char *content)
@@ -93,4 +94,110 @@ void construir_indice(const char *content)
             i++;
         }
     }
+}
+
+void clear_inverted_index(void)
+{
+    for (int i = 0; i < SIZE_IDX; i++)
+    {
+        NodoIndice *cur = indiceInvertido[i];
+        while (cur)
+        {
+            NodoIndice *next = cur->siguiente;
+            free(cur->posiciones);
+            free(cur);
+            cur = next;
+        }
+        indiceInvertido[i] = NULL;
+    }
+}
+
+int word_in_index(const char *palabra)
+{
+    int h = hash_indice((char *)palabra);
+    NodoIndice *cur = indiceInvertido[h];
+    while (cur)
+    {
+        if (strcmp(cur->palabra, palabra) == 0)
+            return 1;
+        cur = cur->siguiente;
+    }
+    return 0;
+}
+
+void build_inverted_index(const char *texto)
+{
+    clear_inverted_index();
+    const char *delims = " \t\n\r.,;:!?\"()[]{}<>|\\/";
+    char *copia = strdup(texto);
+    char *token = strtok(copia, delims);
+    int offset = 0;
+
+    while (token)
+    {
+        agregar_al_indice(token, offset);
+        offset++;
+        token = strtok(NULL, delims);
+    }
+    free(copia);
+}
+
+void save_inverted_index(const char *ruta_idx)
+{
+    FILE *out = fopen(ruta_idx, "w");
+    if (!out)
+    {
+        perror("save_inverted_index");
+        return;
+    }
+
+    for (int i = 0; i < SIZE_IDX; i++)
+    {
+        NodoIndice *cur = indiceInvertido[i];
+        while (cur)
+        {
+            fprintf(out, "%s", cur->palabra);
+            for (int j = 0; j < cur->cantidad; j++)
+                fprintf(out, " %d", cur->posiciones[j]);
+            fputc('\n', out);
+            cur = cur->siguiente;
+        }
+    }
+    fclose(out);
+}
+
+int load_inverted_index(const char *ruta_idx)
+{
+    FILE *in = fopen(ruta_idx, "r");
+    if (!in)
+        return 0;
+
+    clear_inverted_index();
+
+    char *line = NULL;
+    size_t len = 0;
+    while (getline(&line, &len, in) != -1)
+    {
+        if (line[0] == '\n')
+            continue;
+        char *pal = strtok(line, " \n");
+        int pos;
+        while ((pal) && (sscanf(pal, "%d", &pos) != 1))
+        {
+            break;
+        }
+        char palabra[100];
+        strcpy(palabra, pal);
+
+        char *num = strtok(NULL, " \n");
+        while (num)
+        {
+            sscanf(num, "%d", &pos);
+            agregar_al_indice(palabra, pos);
+            num = strtok(NULL, " \n");
+        }
+    }
+    free(line);
+    fclose(in);
+    return 1;
 }

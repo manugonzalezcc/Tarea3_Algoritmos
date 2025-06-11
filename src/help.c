@@ -1,7 +1,7 @@
 #include "help.h"
 #include "libs.h"
 
-void print_help(const char *prog_name)
+void print_help()
 {
     printf(RED "██╗  ██╗███████╗██╗     ██╗      ██████╗ \n");
     printf(ORANGE "██║  ██║██╔════╝██║     ██║     ██╔═══██╗\n");
@@ -10,6 +10,8 @@ void print_help(const char *prog_name)
     printf(CYAN "██║  ██║███████╗███████╗███████╗╚██████╔╝\n");
     printf(BLUE "╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝ ╚═════╝ \n");
     printf(MAGENTA "              ¡Bienvenido al motor de búsqueda!\n" RESET);
+    printf(MAGENTA "             OJO (Debe dar permisos para poder usar el ./run.sh: chmod +x run.sh, lo mismo para los tests: chmod +x run_tests.sh)\n" RESET);
+
     printf("\n");
 
     printf(YELLOW "        |\\__/,|   (`\\\n");
@@ -25,10 +27,10 @@ void print_help(const char *prog_name)
     printf(CYAN "║" RESET "  " YELLOW "-f <archivo> --in <palabra>" RESET
                 "                      Detecta si la palabra está en el texto.                   " CYAN "║\n");
 
-    printf(CYAN "║" RESET "  " YELLOW "-f <archivo> --(kmp/bm/algoritmo3) --word <palabra>" RESET
+    printf(CYAN "║" RESET "  " YELLOW "-f <archivo> --(kmp/bm/shift_and) --word <palabra>" RESET
                 "    Busca la palabra en el texto.                " CYAN "║\n");
 
-    printf(CYAN "║" RESET "  " YELLOW "-f <archivo> --(kmp/bm/algoritmo3) --pattern \"patrón\"" RESET
+    printf(CYAN "║" RESET "  " YELLOW "-f <archivo> --(kmp/bm/shift_and) --pattern \"patrón\"" RESET
                 "        Buscar patrón en el texto.                  " CYAN "║\n");
 
     printf(CYAN "║" RESET "       (el patrón debe ir entre comillas dobles)                                      " CYAN "║\n");
@@ -46,6 +48,8 @@ void print_help(const char *prog_name)
 
     printf(CYAN "║" RESET "  " YELLOW "-f <archivo> --index" RESET
                 "                                Muestra índice invertido de palabras.          " CYAN "║\n");
+    printf(CYAN "║" RESET "  " YELLOW "--ranking <palabra>" RESET
+                "                                Muestra el ranking segun la palabra ingresada, busca en todos los documentos .txt o .html de docs/      " CYAN "║\n");
 
     printf(CYAN "║" RESET "  " YELLOW "-h, --help" RESET
                 "                                     Mostrar esta ayuda del sistema.            " CYAN "║\n");

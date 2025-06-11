@@ -1,3 +1,6 @@
 algoritmo,archivo,patron,comparaciones,accesos_memoria,tiempo_ms
-kmp,resultados_kmp.csv,ipsu,957,1010,0.019
-kmp,resultados_kmp.csv,documento,647,712,0.010
+kmp,resultados_kmp.csv,documento,647,712,0.020
+kmp,resultados_kmp.csv,texto,663,714,0.011
+kmp,resultados_kmp.csv,analisis,899,951,0.008
+kmp,resultados_kmp.csv,puntuacion,899,939,0.011
+kmp,resultados_kmp.csv,caracteres,899,949,0.012

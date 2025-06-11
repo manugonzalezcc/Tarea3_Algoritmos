@@ -1,5 +1,6 @@
 algoritmo,archivo,patron,comparaciones,accesos_memoria,tiempo_ms
-shiftand,docs/doc2.html,texto,-1,-1,0.002
-shiftand,docs/doc2.html,texto,-1,-1,0.002
-shiftand,docs/doc2.html,texto,339,344,0.002
-shiftand,docs/doc2.html,texto,339,344,0.001
+shiftand,docs/doc1.html,documento,450,459,0.005
+shiftand,docs/doc1.html,texto,450,455,0.003
+shiftand,docs/doc1.html,analisis,450,458,0.004
+shiftand,docs/doc1.html,puntuacion,450,460,0.005
+shiftand,docs/doc1.html,caracteres,450,460,0.005

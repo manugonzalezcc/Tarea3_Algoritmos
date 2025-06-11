@@ -10,6 +10,19 @@
 #include "hash.h"
 #include "similarity.h"
 #include "levenshtein.h"
+#include "ranking.h"
+
+static void ensure_index(const char *ruta_txt, const char *contenido)
+{
+    char ruta_idx[PATH_MAX];
+    snprintf(ruta_idx, sizeof(ruta_idx), "%s.idx", ruta_txt);
+
+    if (!load_inverted_index(ruta_idx))
+    {
+        build_inverted_index(contenido);
+        save_inverted_index(ruta_idx);
+    }
+}
 
 int main(int argc, char *argv[])
 {
@@ -18,12 +31,14 @@ int main(int argc, char *argv[])
     int verbose = 0;
     char *word_to_search = NULL;
     char *word_to_search_proximity = NULL;
+    char *word_to_search_ranking = NULL;
     int use_kmp = 0;
     int use_bm = 0;
-    int use_algoritmo3 = 0;
+    int shift_and = 0;
     int compare = 0;
     int detect = 0;
     int proximity = 0;
+    int ranking = 0;
     int index = 0;
     int tolerance;
     int top = 0;
@@ -34,12 +49,11 @@ int main(int argc, char *argv[])
 
     static struct option long_options[] = {
         {"file", required_argument, 0, 'f'},
-        {"verbose", no_argument, 0, 'v'},
         {"help", no_argument, 0, 'h'},
         {"in", required_argument, 0, 'i'},
         {"kmp", no_argument, 0, 1},
         {"bm", no_argument, 0, 2},
-        {"algoritmo3", no_argument, 0, 3},
+        {"shift_and", no_argument, 0, 3},
         {"word", required_argument, 0, 4},
         {"pattern", required_argument, 0, 5},
         {"compare", required_argument, 0, 6},
@@ -47,27 +61,22 @@ int main(int argc, char *argv[])
         {"proximity", required_argument, 0, 8},
         {"tolerance", required_argument, 0, 9},
         {"index", no_argument, 0, 10},
+        {"ranking", required_argument, 0, 11},
 
         {0, 0, 0, 0}};
 
     int long_index = 0;
 
-    while ((opt = getopt_long(argc, argv, "f:vhq:", long_options, &long_index)) != -1)
+    while ((opt = getopt_long(argc, argv, "f:vh:", long_options, &long_index)) != -1)
     {
         switch (opt)
         {
         case 'f':
             file = optarg;
             break;
-        case 'v':
-            verbose = 1;
-            break;
         case 'h':
             print_help(argv[0]);
             return 0;
-        case 'q':
-            // consulta = optarg;
-            break;
         case 'i':
             word_to_search = optarg;
             break;
@@ -78,7 +87,7 @@ int main(int argc, char *argv[])
             use_bm = 1;
             break;
         case 3:
-            use_algoritmo3 = 1;
+            shift_and = 1;
             break;
         case 4:
             word = optarg;
@@ -104,6 +113,10 @@ int main(int argc, char *argv[])
         case 10:
             index = 1;
             break;
+        case 11:
+            ranking = 1;
+            word_to_search_ranking = optarg;
+            break;
 
         default:
             fprintf(stderr, "Uso: %s -f <file> [-kmp | -bm | -algoritmo3]\n", argv[0]);
@@ -115,34 +128,31 @@ int main(int argc, char *argv[])
 
     if (word_to_search)
     {
-        void build_hash_table(char *text);
-        int is_in_text(const char *word_to_search);
-
         normalize_text(word_to_search);
-        build_hash_table(content);
 
-        int answer = is_in_text(word_to_search);
+        // Usamos índice persistente
+        ensure_index(file, content);
 
-        if (answer == -1)
-            printf(RED "✘ La palabra \"%s\" " RESET "NO está en el texto " CYAN "%s" RESET ".\n", word_to_search, file);
+        if (word_in_index(word_to_search))
+            printf(GREEN "✔ La palabra \"%s\" " RESET "SI " GREEN "está " RESET "en el texto " CYAN "%s" RESET ".\n",
+                   word_to_search, file);
         else
-            printf(GREEN "✔ La palabra \"%s\" " RESET "SI " GREEN "está " RESET "en el texto " CYAN "%s" RESET ".\n", word_to_search, file);
-    }
-    if (!file)
-    {
-        perror("No se pudo abrir el archivo!");
+            printf(RED "✘ La palabra \"%s\" " RESET "NO está en el texto " CYAN "%s" RESET ".\n",
+                   word_to_search, file);
     }
 
-    if ((use_kmp || use_bm || use_algoritmo3) && (pattern || word) == NULL)
+    if ((use_kmp || use_bm || shift_and) && (pattern == NULL && word == NULL))
     {
         fprintf(stderr, "Debes especificar el patrón o palabra a buscar.");
         return 1;
     }
+
     if (use_kmp)
     {
-        void build_hash_table(char *text);
         void printf_hash_table(void);
         int word_frequency(const char *word_to_search);
+        void build_hash_table(char *texto);
+
         int occurrences = 0;
 
         fprintf(stdout, "Ejecutando búsqueda con KMP...\n");
@@ -165,21 +175,16 @@ int main(int argc, char *argv[])
             kmp_search(content, word);
             printf("La palabra '%s' aparece %d veces en el texto.\n", word, occurrences);
         }
-
-        // esto puede ser una opcion extra para mostrar la tabla hash construida
-        // stopwords(content, "stopwords-es.txt");
-        // build_hash_table(content);
-
-        // printf("Tabla hash con frecuencia de palabras:\n");
-        // printf_hash_table();
     }
+
     else if (use_bm)
     {
         fprintf(stdout, "Ejecutando búsqueda con Boyer-Moore...\n");
         int ocurrencias = boyer_moore_bad_char(content, pattern, file);
         printf("La palabra '%s' aparece %d veces en el texto.\n", pattern, ocurrencias);
     }
-    else if (use_algoritmo3)
+
+    else if (shift_and)
     {
         fprintf(stdout, "Ejecutando búsqueda con Shift-And...\n");
 
@@ -192,6 +197,7 @@ int main(int argc, char *argv[])
         int ocurrencias = shift_and_search(content, pattern, file);
         printf("La palabra '%s' aparece %d veces en el texto.\n", pattern, ocurrencias);
     }
+
     if (compare)
     {
         char *content1 = load(file_compare_1);
@@ -199,7 +205,7 @@ int main(int argc, char *argv[])
 
         if (!content1 || !content2)
         {
-            fprintf(stderr, "Error al cargar uno de los archivos para comparación.\n");
+            fprintf(stderr, RED "[ERROR]" RESET " No se pudo cargar uno de los archivos para comparación.\n");
             return 1;
         }
 
@@ -210,15 +216,22 @@ int main(int argc, char *argv[])
         ListaTokens tokens2 = tokenizar_texto(content2);
 
         float similitud = calculate_similarity(tokens1, tokens2);
-        printf("Similitud: %.2f\n", similitud);
+        printf(CYAN "\n╔══════════════════════════════════════════════╗\n");
+        printf("║         RESULTADO DE COMPARACIÓN             ║\n");
+        printf("╚══════════════════════════════════════════════╝\n" RESET);
+
+        printf(BLUE "Archivo 1:" RESET " %s\n", file_compare_1);
+        printf(BLUE "Archivo 2:" RESET " %s\n", file_compare_2);
+
+        printf(GREEN "\nSimilitud calculada: " RESET "%.2f%%\n", similitud * 100);
 
         if (similitud > 0.5)
         {
-            printf("Los textos son bastante similares.\n");
+            printf(YELLOW "▶ Resultado:" RESET " Los textos son " GREEN "bastante similares.\n" RESET);
         }
         else
         {
-            printf("Los textos no son tan similares.\n");
+            printf(YELLOW "▶ Resultado:" RESET " Los textos " RED "no son tan similares.\n" RESET);
         }
 
         liberar_tokens(tokens1);
@@ -226,6 +239,7 @@ int main(int argc, char *argv[])
         free(content1);
         free(content2);
     }
+
     if (detect)
     {
         void printf_top_from_hash_table();
@@ -234,17 +248,32 @@ int main(int argc, char *argv[])
         build_hash_table(content);
         printf_top_from_hash_table();
     }
+
     if (proximity)
     {
         normalize_text(word_to_search_proximity);
         buscar_palabras_similares(content, word_to_search_proximity, tolerance);
     }
+
     if (index)
     {
         stopwords(content, "stopwords-es.txt");
         construir_indice(content);
         printf(CYAN "\n[ Índice de palabras ]\n" RESET);
         imprimir_indice();
+    }
+
+    if (ranking)
+    {
+        int file_number = 0;
+        char **archivos = list_valid_files("docs", &file_number);
+
+        normalize_text(word_to_search_ranking);
+        search_in_docs(word_to_search_ranking, archivos, file_number);
+
+        for (int i = 0; i < file_number; i++)
+            free(archivos[i]);
+        free(archivos);
     }
 
     free(content);

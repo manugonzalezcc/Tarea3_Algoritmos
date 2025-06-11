@@ -1,6 +1,8 @@
 #include "hash.h"
 #include "libs.h"
 
+Node *tablaHash[SIZE] = {0};
+
 int hash(char *word)
 {
     int hash = 0;
