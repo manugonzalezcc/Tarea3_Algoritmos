@@ -28,7 +28,6 @@ int main(int argc, char *argv[])
 {
     int opt;
     char *file = NULL;
-    int verbose = 0;
     char *word_to_search = NULL;
     char *word_to_search_proximity = NULL;
     char *word_to_search_ranking = NULL;
@@ -41,7 +40,6 @@ int main(int argc, char *argv[])
     int ranking = 0;
     int index = 0;
     int tolerance;
-    int top = 0;
     char *pattern = NULL;
     char *word = NULL;
     char *file_compare_1 = NULL;
@@ -75,7 +73,7 @@ int main(int argc, char *argv[])
             file = optarg;
             break;
         case 'h':
-            print_help(argv[0]);
+            print_help();
             return 0;
         case 'i':
             word_to_search = optarg;
@@ -149,10 +147,6 @@ int main(int argc, char *argv[])
 
     if (use_kmp)
     {
-        void printf_hash_table(void);
-        int word_frequency(const char *word_to_search);
-        void build_hash_table(char *texto);
-
         int occurrences = 0;
 
         fprintf(stdout, "Ejecutando búsqueda con KMP...\n");
@@ -242,8 +236,6 @@ int main(int argc, char *argv[])
 
     if (detect)
     {
-        void printf_top_from_hash_table();
-
         stopwords(content, "stopwords-es.txt");
         build_hash_table(content);
         printf_top_from_hash_table();

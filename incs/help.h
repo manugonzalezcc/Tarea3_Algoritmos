@@ -1,5 +1,5 @@
-#ifndef HASH_H
-#define HASH_H
+#ifndef HELP_H
+#define HELP_H
 #include "libs.h"
 
 void print_help();
