@@ -2,27 +2,27 @@
 #define INVERTED_INDEX_H
 #include "libs.h"
 
-typedef struct NodoIndice
+typedef struct IndexNode
 {
-    char palabra[100];
-    int *posiciones;
-    int cantidad;
-    int capacidad;
-    struct NodoIndice *siguiente;
-} NodoIndice;
+    char word[100];
+    int *positions;
+    int quantity;
+    int capacity;
+    struct IndexNode *next;
+} IndexNode;
 
 #define SIZE_IDX 1000
-extern NodoIndice *indiceInvertido[SIZE_IDX];
+extern IndexNode *invertedIndex[SIZE_IDX];
 
-int hash_indice(char *palabra);
-void agregar_al_indice(const char *palabra, int posicion);
-void imprimir_indice();
-void construir_indice(const char *content);
+int hash_index(char *word);
+void add_to_index(const char *word, int position);
+void print_index();
+void build_index(const char *content);
 
-void build_inverted_index(const char *texto);
-void save_inverted_index(const char *ruta_idx);
-int load_inverted_index(const char *ruta_idx);
+void build_inverted_index(const char *text);
+void save_inverted_index(const char *route_idx);
+int load_inverted_index(const char *route_idx);
 void clear_inverted_index(void);
-int word_in_index(const char *palabra);
+int word_in_index(const char *word);
 
 #endif

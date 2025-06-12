@@ -6,13 +6,13 @@
 typedef struct
 {
     char **tokens;
-    int cantidad;
-} ListaTokens;
+    int quantity;
+} TokenList;
 
 // se devuelve la lista de tokens
-ListaTokens tokenizar_texto(const char *texto);
+TokenList tokenize_text(const char *text);
 
 // libera la memoria de la lista de tokens
-void liberar_tokens(ListaTokens lista);
+void free_tokens(TokenList list);
 
 #endif

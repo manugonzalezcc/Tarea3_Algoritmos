@@ -8,7 +8,7 @@ typedef struct
     int quantity_of_appearances;
 } Result;
 
-void search_in_docs(char *pattern, char *files[], int files_number);
+void search_in_docs(const char *pattern, char *files[], int files_number);
 char **list_valid_files(const char *directory, int *quantity);
 
 #endif

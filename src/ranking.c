@@ -2,7 +2,7 @@
 #include "ranking.h"
 #include "load.h"
 
-void search_in_docs(char *pattern, char *files[], int file_numbers)
+void search_in_docs(const char *pattern, char *files[], int file_numbers)
 {
     Result results[file_numbers];
 

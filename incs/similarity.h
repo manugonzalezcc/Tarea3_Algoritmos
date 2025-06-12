@@ -3,6 +3,6 @@
 #include "libs.h"
 #include "tokenizer.h"
 
-float calculate_similarity(ListaTokens a, ListaTokens b);
+float calculate_similarity(TokenList a, TokenList b);
 
 #endif

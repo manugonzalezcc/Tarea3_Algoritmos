@@ -18,4 +18,6 @@ void delete_stopwords(char *texto, char stopwords[][32], int count);
 
 void stopwords(char *texto, const char *ruta_stopwords);
 
+int file_exists(const char *name);
+
 #endif

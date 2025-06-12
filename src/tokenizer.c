@@ -9,34 +9,34 @@ void normalizar_token(char *token)
     }
 }
 
-ListaTokens tokenizar_texto(const char *texto)
+TokenList tokenize_text(const char *text)
 {
-    ListaTokens resultado;
-    resultado.tokens = malloc(sizeof(char *) * MAX_TOKENS);
-    resultado.cantidad = 0;
+    TokenList result;
+    result.tokens = malloc(sizeof(char *) * MAX_TOKENS);
+    result.quantity = 0;
 
-    const char *delimitadores = " \t\n\r.,;:!?\"()[]{}<>|\\/";
+    const char *delimiters = " \t\n\r.,;:!?\"()[]{}<>|\\/";
 
-    char *copia = strdup(texto);
-    char *token = strtok(copia, delimitadores);
+    char *copy = strdup(text);
+    char *token = strtok(copy, delimiters);
 
-    while (token && resultado.cantidad < MAX_TOKENS)
+    while (token && result.quantity < MAX_TOKENS)
     {
         normalizar_token(token);
-        resultado.tokens[resultado.cantidad] = strdup(token);
-        resultado.cantidad++;
-        token = strtok(NULL, delimitadores);
+        result.tokens[result.quantity] = strdup(token);
+        result.quantity++;
+        token = strtok(NULL, delimiters);
     }
 
-    free(copia);
-    return resultado;
+    free(copy);
+    return result;
 }
 
-void liberar_tokens(ListaTokens lista)
+void free_tokens(TokenList list)
 {
-    for (int i = 0; i < lista.cantidad; i++)
+    for (int i = 0; i < list.quantity; i++)
     {
-        free(lista.tokens[i]);
+        free(list.tokens[i]);
     }
-    free(lista.tokens);
+    free(list.tokens);
 }

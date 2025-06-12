@@ -2,14 +2,14 @@
 #include "similarity.h"
 #include "hash.h"
 
-float calculate_similarity(ListaTokens a, ListaTokens b)
+float calculate_similarity(TokenList a, TokenList b)
 {
     clear_hash_table();
 
     int unique_total = 0;
     int commons = 0;
 
-    for (int i = 0; i < a.cantidad; i++)
+    for (int i = 0; i < a.quantity; i++)
     {
         int h = hash(a.tokens[i]);
         Node *temp = tablaHash[h];
@@ -30,7 +30,7 @@ float calculate_similarity(ListaTokens a, ListaTokens b)
         }
     }
 
-    for (int i = 0; i < b.cantidad; i++)
+    for (int i = 0; i < b.quantity; i++)
     {
         if (is_in_text(b.tokens[i]) == 1)
         {

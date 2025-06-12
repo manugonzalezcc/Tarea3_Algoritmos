@@ -107,3 +107,14 @@ void normalize_text(char *text)
 
     *dst = '\0';
 }
+
+int file_exists(const char *name)
+{
+    FILE *archivo = fopen(name, "r");
+    if (archivo)
+    {
+        fclose(archivo);
+        return 1;
+    }
+    return 0;
+}
