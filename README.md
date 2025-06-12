@@ -9,73 +9,83 @@
 
 ## Descripción del Proyecto 🤔
 
-En este proyecto, implementaremos y analizaremos algoritmos de procesamiento de texto y búsqueda de patrones. Nuestro objetivo es aplicar estos algoritmos a un problema práctico relacionado con el análisis de documentos y la búsqueda de información.
-
-El propósito principal es desarrollar un sistema eficiente capaz de:
+En este proyecto, implementamos y analizamos algoritmos de procesamiento de texto y búsqueda de patrones. El objetivo es desarrollar un sistema eficiente capaz de:
 
 - Indexar grandes volúmenes de texto  
-- Realizar búsquedas rápidas y precisas de patrones dentro de los documentos  
+- Realizar búsquedas rápidas y precisas dentro de documentos  
 - Analizar textos para extraer información relevante  
 
-Además, evaluaremos el rendimiento de los algoritmos implementados para entender su eficiencia y aplicabilidad en contextos reales.
+Además, evaluamos el rendimiento de los algoritmos implementados para entender su eficiencia y aplicabilidad en contextos reales.
 
 ---
 
-## Contenido del Repositorio 😎
+## 📁 Contenido del Repositorio
 
-- Implementaciones de algoritmos de búsqueda y procesamiento de texto    
+- Implementaciones de algoritmos de búsqueda y procesamiento de texto  
 - Scripts para pruebas y evaluación de rendimiento  
+- Archivos de documentación y ayuda  
 
 ---
 
-### 🗓 Cronograma de Desarrollo
-📅 Del 3 al 6 de junio
+## 🚀 Cómo Ejecutar el Programa
 
-    Implementación del algoritmo KMP básico – Diego
+### Compilación ⚙️
 
-    Mejora del algoritmo Boyer-Moore y carga de datos – Manuel
+- Antes de ejecutar el proyecto, debemos compilarlo, para ello debemos usar el comando:
 
-    Implementación del tercer algoritmo de búsqueda – Claudio
+```bash
+make
+```
 
-    Desarrollo de la segunda estructura de datos para indexación – Diego
+### Interfaz de ayuda 💻
 
-    Inicio del informe del proyecto
+- Podemos ver todas las opciones disponibles ejecutando el comando:
 
-📅 Del 7 al 10 de junio
+```bash
+make run
+```
 
-    Comienzo del sistema de análisis de documentos desde la línea de comandos
+### 1️⃣ Dar permisos de ejecución (una sola vez)
 
-    Preprocesamiento del texto (¡Listo!)
+Antes de ejecutar el programa, se debe otorgar permisos a los scripts:
 
-    Indexación de documentos
+```bash
+chmod +x run.sh
+chmod +x run_tests.sh  
+```
 
-    Creación del motor de búsqueda (palabras y frases desde terminal)
+### 2️⃣ Ejecutar el programa con opciones
 
-    Análisis de texto:
+El comando base para ejecutar el programa es:
 
-        Estadísticas de palabras
+```bash
+./run.sh [opciones]
+```
 
-        Detección de palabras clave
+---
 
-        Análisis de similitud
+## 🧪 Ejemplo de Uso
 
-    Inicio de la presentación del proyecto
+```bash
+./run.sh -f docs/doc1.html --kmp --pattern "algoritmo eficiente"
+```
 
-📅 Del 11 al 15 de junio
+🔍 Este comando busca el patrón `"algoritmo eficiente"` usando el algoritmo **Knuth-Morris-Pratt** en el archivo `doc1.html`.
 
-    Mejoras generales del código
+---
 
-    Finalización del informe
+## 🧾 Opciones Disponibles
 
-    Finalización de la presentación
-
-    Finalización de los módulos restantes
-
-
-## Integrantes 📌
-
-- Diego Sanhueza 🙋‍♂️
-- Claudio Matulich 👨‍💻
-- Manuel González 🙋‍♂️
+| Comando | Descripción |
+|--------|-------------|
+| `-f <archivo> --in <palabra>` | Detecta si la palabra está en el texto. |
+| `-f <archivo> --kmp --word <palabra>` | Busca una palabra exacta con el algoritmo especificado. |
+| `-f <archivo> --(kmp|bm|shift_and) --pattern "<patrón>"` | Busca un patrón en el texto (usar comillas dobles). |
+| `--compare <archivo1> <archivo2>` | Compara el contenido de dos documentos. |
+| `-f <archivo> --detect` | Detecta palabras clave dentro del archivo. |
+| `-f <archivo> --proximity <palabra> --tolerance <n>` | Busca palabras cercanas con margen de error (proximidad). |
+| `-f <archivo> --index` | Muestra el índice invertido del archivo. |
+| `--ranking <palabra>` | Muestra un ranking de relevancia según la palabra ingresada en documentos de `docs/`. |
+| `-h`, `--help` | Muestra esta ayuda del sistema. |
 
 ---
