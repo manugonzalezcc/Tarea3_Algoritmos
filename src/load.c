@@ -107,3 +107,4 @@ void normalize_text(char *text)
 
     *dst = '\0';
 }
+//*

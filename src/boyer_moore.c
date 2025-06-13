@@ -81,3 +81,4 @@ int boyer_moore_bad_char(const char *text, const char *pattern, const char *file
 
     return count;
 }
+//*

@@ -23,3 +23,4 @@ void clear_hash_table();
 void printf_top_from_hash_table(void);
 
 #endif
+//*

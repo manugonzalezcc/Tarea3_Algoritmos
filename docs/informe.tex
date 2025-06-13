@@ -50,7 +50,7 @@
 % FOOTER INFORMATION
 %----------------------------------------------------------
 
-\smalltitle{Diseño de Algoritmos - PR3}
+\title{Diseño de Algoritmos - PR3: Algoritmos de Búsqueda de Patrones en Documentos}
 
 %----------------------------------------------------------
 % ARTICLE INFORMATION
@@ -62,6 +62,7 @@
 
 \begin{abstract}
 %Resumen del informe
+En este informe se presenta el desarrollo de un sistema de búsqueda de patrones en documentos, implementando algoritmos avanzados y estructuras de datos eficientes. El objetivo es analizar el rendimiento de estos algoritmos en términos de tiempo de ejecución, número de comparaciones y accesos a memoria, utilizando un conjunto de documentos preprocesados. Se implementaron varios algoritmos de búsqueda, incluyendo KMP y Boyer-Moore, y se desarrollaron estructuras de datos para indexación y recuperación de información. Además, se aplicaron técnicas de preprocesamiento de texto para mejorar la eficiencia y precisión de las búsquedas.
 \end{abstract}
 
 %----------------------------------------------------------
@@ -74,7 +75,7 @@
 %----------------------------------------------------------
 
 \section{Introducción}
-Descripción general del proyecto, motivación y contexto.
+En este informe se presenta el desarrollo de un sistema de búsqueda de patrones en documentos, implementando algoritmos avanzados y estructuras de datos eficientes. El objetivo es analizar el rendimiento de estos algoritmos en términos de tiempo de ejecución, número de comparaciones y accesos a memoria, utilizando un conjunto de documentos preprocesados.
 
 \section{Objetivos}
 \begin{itemize}
@@ -88,35 +89,122 @@ Descripción general del proyecto, motivación y contexto.
 
 \section{Descripción del Proyecto}
 Explicación del problema a resolver, alcance y requisitos principales.
-
+El proyecto consiste en un sistema de búsqueda de patrones en documentos que permite a los usuarios buscar términos específicos dentro de un conjunto de archivos de texto y HTML. El sistema implementa varios algoritmos de búsqueda, estructuras de datos para indexación y técnicas de preprocesamiento de texto para mejorar la eficiencia y precisión de las búsquedas.
 \section{Requisitos Técnicos}
+Como requisitos técnicos, el sistema debe ser capaz de manejar archivos de texto y HTML, realizar búsquedas exactas y aproximadas, y proporcionar estadísticas sobre los documentos procesados. Además, debe contar con una interfaz de línea de comandos para facilitar su uso.
+\section{Diseño del Sistema}
+El sistema se divide en varias secciones clave:
+\subsection{Arquitectura del Sistema}
+Descripción general de la arquitectura del sistema, incluyendo módulos principales y su interacción.
+\subsection{Módulos Principales}
+\begin{itemize}
+    \item \textbf{Carga y Preprocesamiento de Documentos:} Módulo encargado de leer los archivos, extraer texto y metadatos, y aplicar técnicas de preprocesamiento.
+    \item \textbf{Indexación de Documentos:} Módulo que construye y actualiza índices para facilitar búsquedas rápidas.
+    \item \textbf{Motor de Búsqueda:} Implementa los algoritmos de búsqueda de patrones y maneja las consultas del usuario.
+    \item \textbf{Análisis de Texto:} Proporciona estadísticas sobre los documentos, como palabras clave y similitud entre documentos.
+    \item \textbf{Interfaz de Línea de Comandos:} Permite a los usuarios interactuar con el sistema a través de comandos específicos.
+
+\end{itemize}
+
 \subsection{Algoritmos de Búsqueda de Patrones}
-Descripción de los algoritmos implementados (KMP, Boyer-Moore, Shift-And, etc.), detalles de implementación y optimizaciones.
+% Descripción de los algoritmos implementados (KMP, Boyer-Moore, Shift-And, etc.), detalles de implementación y optimizaciones.
+
+En este proyecto se implementaron tres algoritmos principales para la búsqueda de patrones en texto:
+
+\begin{itemize}
+    \item \textbf{KMP (Knuth-Morris-Pratt):} Utiliza un arreglo de prefijos (LPS) para evitar comparaciones redundantes y mejorar la eficiencia al buscar patrones. Se registran comparaciones, accesos a memoria y tiempo de ejecución, guardando los resultados en CSV para su análisis.
+    \item \textbf{Boyer-Moore (mal carácter):} Implementado usando la heurística del mal carácter, permite saltos eficientes en el texto y reduce el número de comparaciones. También mide el rendimiento y almacena los resultados en un archivo CSV.
+    \item \textbf{Shift-And:} Algoritmo basado en operaciones a nivel de bits, eficiente para patrones cortos (hasta 31 caracteres). Utiliza máscaras de bits para representar el estado de coincidencia y también registra métricas de rendimiento.
+\end{itemize}
+
+% Recomendación: Aquí se puede incluir una tabla comparativa de resultados experimentales entre los algoritmos, o un gráfico de barras mostrando el tiempo de ejecución y comparaciones.
+
+% kmp
+% El algoritmo KMP utiliza un arreglo de prefijos (LPS) para evitar comparaciones redundantes al buscar patrones. También se registran comparaciones, accesos a memoria y tiempo de ejecución, guardando los resultados en CSV para su análisis.
+
+% boyer-moore
+% El algoritmo de Boyer-Moore fue implementado utilizando la heurística del mal carácter. Esta técnica permite buscar un patrón dentro de un texto de manera eficiente, realizando comparaciones de derecha a izquierda y utilizando una tabla de desplazamientos para saltar posiciones cuando ocurre una discrepancia.  
+% La implementación cuenta el número de comparaciones, accesos a memoria y mide el tiempo de ejecución, almacenando estos resultados en un archivo CSV para su posterior análisis y comparación con otros algoritmos.
 
 \subsection{Estructuras de Datos para Indexación}
-Explicación de las estructuras usadas (Trie, índice invertido, tabla hash, filtro de Bloom, etc.).
+% Explicación de las estructuras usadas (Trie, índice invertido, tabla hash, filtro de Bloom, etc.).
+
+Para facilitar búsquedas rápidas y eficientes, se utilizaron principalmente dos estructuras:
+
+\begin{itemize}
+    \item \textbf{Índice invertido:} Permite asociar cada palabra con las posiciones donde aparece en los documentos, facilitando búsquedas exactas y consultas booleanas.
+    \item \textbf{Tabla hash:} Usada para calcular la frecuencia de palabras y detectar palabras clave en los textos.
+\end{itemize}
+
+% Recomendación: Se puede agregar un ejemplo de cómo se almacena una palabra y sus posiciones en el índice invertido.
 
 \subsection{Técnicas de Preprocesamiento de Texto}
-Descripción de las técnicas aplicadas (tokenización, normalización, stopwords, stemming, etc.).
+% Descripción de las técnicas aplicadas (tokenización, normalización, stopwords, stemming, etc.).
+
+El preprocesamiento es fundamental para mejorar la calidad de las búsquedas. Se aplicaron las siguientes técnicas:
+
+\begin{itemize}
+    \item \textbf{Tokenización:} Separación del texto en palabras o tokens.
+    \item \textbf{Normalización:} Conversión a minúsculas y eliminación de acentos/caracteres especiales.
+    \item \textbf{Eliminación de stopwords:} Se eliminan palabras comunes que no aportan significado relevante (como "el", "la", "de", etc.).
+\end{itemize}
+
+% Recomendación: Se puede mostrar un ejemplo de texto antes y después del preprocesamiento.
 
 \subsection{Framework de Análisis de Rendimiento}
-Cómo se midió el rendimiento, qué métricas se usaron y cómo se generaron los datos de prueba.
+% Cómo se midió el rendimiento, qué métricas se usaron y cómo se generaron los datos de prueba.
+
+Para evaluar los algoritmos, se midieron las siguientes métricas en cada búsqueda:
+
+\begin{itemize}
+    \item \textbf{Comparaciones:} Número de comparaciones realizadas entre caracteres.
+    \item \textbf{Accesos a memoria:} Cantidad de veces que se accede a posiciones de texto o patrones.
+    \item \textbf{Tiempo de ejecución:} Medido en milisegundos.
+\end{itemize}
+
+Los resultados se almacenan en archivos CSV para facilitar su análisis y comparación. Se usaron textos de prueba de diferentes tamaños y patrones variados.
+
+% Recomendación: Aquí se puede incluir un gráfico de líneas mostrando la evolución del tiempo de ejecución según el tamaño del texto o patrón.
 
 \section{Desarrollo del Sistema}
+
 \subsection{Carga y Preprocesamiento de Documentos}
-Soporte para archivos de texto y HTML, extracción de texto y metadatos.
+%Soporte para archivos de texto y HTML, extracción de texto y metadatos.
+
+El sistema permite cargar tanto archivos de texto plano como HTML. Para los archivos HTML, se realiza una limpieza básica para extraer solo el contenido relevante, eliminando etiquetas y caracteres innecesarios. Una vez cargado el texto, se aplica un preprocesamiento que incluye normalización (pasar todo a minúsculas y quitar acentos), tokenización (separar el texto en palabras) y eliminación de stopwords. Esto ayuda a que las búsquedas sean más precisas y rápidas, ya que se trabaja solo con la información relevante.
 
 \subsection{Indexación de Documentos}
-Construcción y actualización de índices, persistencia.
+%Construcción y actualización de índices, persistencia.
+
+Para acelerar las búsquedas, se construye un índice invertido para cada documento. Este índice asocia cada palabra con las posiciones donde aparece en el texto, permitiendo encontrar rápidamente todas las ocurrencias de una palabra o patrón. Además, se utiliza una tabla hash para calcular la frecuencia de palabras y detectar palabras clave. Los índices pueden guardarse en disco para no tener que reconstruirlos cada vez que se realiza una búsqueda.
+
+% Recomendación: Aquí se puede mostrar un ejemplo simple de cómo se almacena una palabra y sus posiciones en el índice invertido.
 
 \subsection{Motor de Búsqueda}
-Búsqueda exacta, aproximada, consultas booleanas, ranking de resultados.
+%Búsqueda exacta, aproximada, consultas booleanas, ranking de resultados.
+
+El motor de búsqueda implementa varias funcionalidades:
+\begin{itemize}
+    \item Búsqueda exacta de patrones usando los algoritmos KMP, Boyer-Moore y Shift-And.
+    \item Búsqueda aproximada utilizando la distancia de Levenshtein, lo que permite encontrar palabras similares aunque tengan errores de tipeo.
+    \item Consultas booleanas, combinando varios términos de búsqueda.
+    \item Ranking de documentos según la cantidad de apariciones del patrón buscado.
+\end{itemize}
+El usuario puede elegir el algoritmo y el tipo de búsqueda desde la línea de comandos.
 
 \subsection{Análisis de Texto}
-Estadísticas, palabras clave, similitud entre documentos.
+%Estadísticas, palabras clave, similitud entre documentos.
+
+El sistema también permite analizar los documentos para obtener estadísticas como la frecuencia de palabras clave, la cantidad de palabras únicas y la similitud entre documentos. Para la similitud, se compara el conjunto de tokens de cada documento, lo que ayuda a identificar textos relacionados o duplicados.
 
 \subsection{Interfaz de Línea de Comandos}
-Descripción de los comandos, flags, formato de salida y ayuda.
+%Descripción de los comandos, flags, formato de salida y ayuda.
+
+La interacción con el sistema se realiza completamente desde la línea de comandos. Se pueden usar diferentes comandos y flags para seleccionar el algoritmo de búsqueda, indicar el archivo o carpeta a analizar, buscar palabras o frases, comparar documentos, mostrar rankings, entre otros. Además, se incluye un comando de ayuda que explica el uso básico del sistema.
+
+% Recomendación: Se puede agregar una tabla resumen de los comandos principales y su función para facilitar el uso del sistema.
+
+% El resto del informe (pruebas, discusión, conclusiones, etc.) se mantiene igual.
 
 \section{Pruebas y Resultados Experimentales}
 Presentación de los experimentos, casos de prueba, resultados, tablas y gráficos comparativos.

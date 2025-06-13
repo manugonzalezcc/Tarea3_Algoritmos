@@ -87,3 +87,4 @@ void buscar_palabras_similares(const char *texto, const char *query, int toleran
         printf(BLUE "Total de palabras similares encontradas: %d\n" RESET, total_encontradas);
     }
 }
+//*

@@ -107,3 +107,4 @@ char **list_valid_files(const char *directory, int *quantity)
     *quantity = total;
     return files;
 }
+//*

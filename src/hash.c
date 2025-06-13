@@ -176,3 +176,4 @@ void printf_top_from_hash_table()
 
     printf(BLUE "+--------------------------+------------+\n" RESET);
 }
+//*

@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.7)  6 JUN 2025 10:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.7)  13 JUN 2025 18:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/manue/Desktop/GitHub/Tarea3_algoritmos/docs/Informe.tex
-(c:/Users/manue/Desktop/GitHub/Tarea3_algoritmos/docs/Informe.tex
+**c:/Users/manue/Desktop/GitHub/Tarea3_algoritmos/docs/informe.tex
+(c:/Users/manue/Desktop/GitHub/Tarea3_algoritmos/docs/informe.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
 (rho-class/rho.cls
@@ -1454,45 +1454,45 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'spanish'.
-LaTeX Font Info:    Trying to load font information for T1+stix2 on input line 69.
+LaTeX Font Info:    Trying to load font information for T1+stix2 on input line 70.
  (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/fonts/stix2-type1\t1stix2.fd
 File: t1stix2.fd 2018/04/02 v2.0.0-latex stix2 T1 font definitions
-) (Informe.aux
-LaTeX Info: Redefining \. on input line 22.
-LaTeX Info: Redefining \% on input line 22.
+) (informe.aux
+LaTeX Info: Redefining \. on input line 17.
+LaTeX Info: Redefining \% on input line 17.
 )
-\openout1 = `Informe.aux'.
+\openout1 = `informe.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for LS1/stix2/m/n on input line 69.
-LaTeX Font Info:    Trying to load font information for LS1+stix2 on input line 69.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for LS1/stix2/m/n on input line 70.
+LaTeX Font Info:    Trying to load font information for LS1+stix2 on input line 70.
  (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/fonts/stix2-type1\ls1stix2.fd
 File: ls1stix2.fd 2018/04/02 v2.0.0-latex stix2 LS1 font definitions
 )
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for LS2/stix2/m/n on input line 69.
-LaTeX Font Info:    Trying to load font information for LS2+stix2 on input line 69.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for LS2/stix2/m/n on input line 70.
+LaTeX Font Info:    Trying to load font information for LS2+stix2 on input line 70.
  (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/fonts/stix2-type1\ls2stix2.fd
 File: ls2stix2.fd 2018/04/02 v2.0.0-latex stix2 LS2 font definitions
 )
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
  (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count521
@@ -1518,19 +1518,19 @@ Package grfext Info: Graphics extension search list:
  (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-LaTeX Info: Redefining \microtypecontext on input line 69.
-Package microtype Info: Applying patch `item' on input line 69.
-Package microtype Info: Applying patch `toc' on input line 69.
-Package microtype Info: Applying patch `eqnum' on input line 69.
-Package microtype Info: Applying patch `footnote' on input line 69.
-Package microtype Info: Applying patch `verbatim' on input line 69.
+LaTeX Info: Redefining \microtypecontext on input line 70.
+Package microtype Info: Applying patch `item' on input line 70.
+Package microtype Info: Applying patch `toc' on input line 70.
+Package microtype Info: Applying patch `eqnum' on input line 70.
+Package microtype Info: Applying patch `footnote' on input line 70.
+Package microtype Info: Applying patch `verbatim' on input line 70.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 69.
+LaTeX Info: Redefining \showhyphens on input line 70.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1579,9 +1579,9 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Command `\dddot' is already robust on input line 69.
-LaTeX Info: Command `\ddddot' is already robust on input line 69.
-Package hyperref Info: Link coloring ON on input line 69.
+LaTeX Info: Command `\dddot' is already robust on input line 70.
+LaTeX Info: Command `\ddddot' is already robust on input line 70.
+Package hyperref Info: Link coloring ON on input line 70.
 Package biblatex Info: Trying to load language 'spanish'...
 Package biblatex Info: ... file 'spanish.lbx' found.
 (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\spanish.lbx
@@ -1590,131 +1590,131 @@ File: spanish.lbx 2023/03/05 v3.19 biblatex localization (PK/MW)
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
-\openout4 = `Informe.bcf'.
+\openout4 = `informe.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'Informe.bbl' not found.
+Package biblatex Info: ... file 'informe.bbl' not found.
 
-No file Informe.bbl.
-Package biblatex Info: Reference section=0 on input line 69.
-Package biblatex Info: Reference segment=0 on input line 69.
-LaTeX Info: Redefining \sptext on input line 69.
-LaTeX Info: Redefining \. on input line 69.
-LaTeX Info: Redefining \% on input line 69.
+No file informe.bbl.
+Package biblatex Info: Reference section=0 on input line 70.
+Package biblatex Info: Reference segment=0 on input line 70.
+LaTeX Info: Redefining \sptext on input line 70.
+LaTeX Info: Redefining \. on input line 70.
+LaTeX Info: Redefining \% on input line 70.
 <figures/logo-umag-ing.png, id=6, 2007.6606pt x 803.1606pt>
 File: figures/logo-umag-ing.png Graphic file (type png)
 <use figures/logo-umag-ing.png>
-Package pdftex.def Info: figures/logo-umag-ing.png  used on input line 71.
+Package pdftex.def Info: figures/logo-umag-ing.png  used on input line 72.
 (pdftex.def)             Requested size: 217.26193pt x 86.91408pt.
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 71.
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 72.
 (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 8.54997pt on input line 71.
+(Font)              scaled to size 8.54997pt on input line 72.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `phv' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 8.54997pt on input line 71.
+(Font)              scaled to size 8.54997pt on input line 72.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 15.19995pt on input line 71.
-LaTeX Font Info:    Trying to load font information for LS1+stix2scr on input line 71.
+(Font)              scaled to size 15.19995pt on input line 72.
+LaTeX Font Info:    Trying to load font information for LS1+stix2scr on input line 72.
  (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/fonts/stix2-type1\ls1stix2scr.fd
 File: ls1stix2scr.fd 2018/04/02 v2.0.0-latex stix2 script LS1 font definitions
 )
-LaTeX Font Info:    Trying to load font information for LS2+stix2ex on input line 71.
+LaTeX Font Info:    Trying to load font information for LS2+stix2ex on input line 72.
  (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/fonts/stix2-type1\ls2stix2ex.fd
 File: ls2stix2ex.fd 2018/04/02 v2.0.0-latex stix2 extentions LS2 font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 71.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 72.
  (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 71.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 72.
  (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for LS1+stix2frak on input line 71.
+LaTeX Font Info:    Trying to load font information for LS1+stix2frak on input line 72.
  (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/fonts/stix2-type1\ls1stix2frak.fd
 File: ls1stix2frak.fd 2018/04/02 v2.0.0-latex stix2 fraktur LS1 font definitions
 )
-LaTeX Font Info:    Trying to load font information for LS1+stix2bb on input line 71.
+LaTeX Font Info:    Trying to load font information for LS1+stix2bb on input line 72.
  (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/fonts/stix2-type1\ls1stix2bb.fd
 File: ls1stix2bb.fd 2018/04/02 v2.0.0-latex stix2 blackboard LS1 font definitions
 )
-LaTeX Font Info:    Trying to load font information for LS2+stix2cal on input line 71.
+LaTeX Font Info:    Trying to load font information for LS2+stix2cal on input line 72.
  (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/fonts/stix2-type1\ls2stix2cal.fd
 File: ls2stix2cal.fd 2018/04/02 v2.0.0-latex stix2 calligraphic LS2 font definitions
 )
-LaTeX Font Info:    Trying to load font information for LS1+stix2sf on input line 71.
+LaTeX Font Info:    Trying to load font information for LS1+stix2sf on input line 72.
  (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/fonts/stix2-type1\ls1stix2sf.fd
 File: ls1stix2sf.fd 2018/04/02 v2.0.0-latex stix2 sans-serif LS1 font definitions
 )
-LaTeX Font Info:    Trying to load font information for LS2+stix2tt on input line 71.
+LaTeX Font Info:    Trying to load font information for LS2+stix2tt on input line 72.
  (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/fonts/stix2-type1\ls2stix2tt.fd
 File: ls2stix2tt.fd 2018/04/02 v2.0.0-latex stix2 typewriter LS2 font definitions
 )
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 5.69998pt on input line 71.
-LaTeX Font Info:    Calculating math sizes for size <7.5> on input line 71.
-LaTeX Font Info:    Calculating math sizes for size <5.24997> on input line 71.
+(Font)              scaled to size 5.69998pt on input line 72.
+LaTeX Font Info:    Calculating math sizes for size <7.5> on input line 72.
+LaTeX Font Info:    Calculating math sizes for size <5.24997> on input line 72.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 8.07497pt on input line 71.
+(Font)              scaled to size 8.07497pt on input line 72.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.40997pt on input line 71.
+(Font)              scaled to size 7.40997pt on input line 72.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 72.
+(Font)              scaled to size 9.49997pt on input line 73.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 9.49997pt on input line 72.
- (Informe.toc
+(Font)              scaled to size 9.49997pt on input line 73.
+ (informe.toc
 LaTeX Info: Redefining \sptext on input line 1.
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.59998pt on input line 6.
+(Font)              scaled to size 7.59998pt on input line 7.
 )
 \tf@toc=\write5
-\openout5 = `Informe.toc'.
+\openout5 = `informe.toc'.
 
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 6.64998pt on input line 102.
+(Font)              scaled to size 6.64998pt on input line 87.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 6.64998pt on input line 102.
+(Font)              scaled to size 6.64998pt on input line 87.
  [1
 
-{C:/Users/manue/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}{C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/stix2-type1/stix2-mathrm.enc}{C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/stix2-type1/stix2-t1.enc} <./figures/logo-umag-ing.png>] [2] 
+{C:/Users/manue/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}{C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/stix2-type1/stix2-mathrm.enc}{C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/stix2-type1/stix2-t1.enc} <./figures/logo-umag-ing.png>] [2] [3] 
 enddocument/afterlastpage: lastpage setting LastPage.
-(Informe.aux
-LaTeX Info: Redefining \sptext on input line 22.
-LaTeX Info: Redefining \. on input line 22.
-LaTeX Info: Redefining \% on input line 22.
+(informe.aux
+LaTeX Info: Redefining \sptext on input line 17.
+LaTeX Info: Redefining \. on input line 17.
+LaTeX Info: Redefining \% on input line 17.
 )
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-Package logreq Info: Writing requests to 'Informe.run.xml'.
-\openout1 = `Informe.run.xml'.
+Package logreq Info: Writing requests to 'informe.run.xml'.
+\openout1 = `informe.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 68642 strings out of 474486
- 1505710 string characters out of 5743755
- 2626543 words of memory out of 5000000
- 89958 multiletter control sequences out of 15000+600000
- 696632 words of font info for 221 fonts, out of 8000000 for 9000
+ 68697 strings out of 474486
+ 1506378 string characters out of 5743755
+ 2627320 words of memory out of 5000000
+ 89969 multiletter control sequences out of 15000+600000
+ 701189 words of font info for 244 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 137i,12n,143p,1057b,1936s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/stix2-type1/STIX2Math.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/stix2-type1/STIX2Text-Italic.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/stix2-type1/STIX2Text-Regular.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on Informe.pdf (2 pages, 797556 bytes).
+ 137i,12n,143p,1057b,1938s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/stix2-type1/STIX2Math.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/stix2-type1/STIX2Text-Bold.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/stix2-type1/STIX2Text-Italic.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/stix2-type1/STIX2Text-Regular.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on informe.pdf (3 pages, 958250 bytes).
 PDF statistics:
- 158 PDF objects out of 1000 (max. 8388607)
- 20 named destinations out of 1000 (max. 500000)
- 49306 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 186 PDF objects out of 1000 (max. 8388607)
+ 24 named destinations out of 1000 (max. 500000)
+ 53426 words of extra memory for PDF output out of 61914 (max. 10000000)
 

@@ -126,3 +126,4 @@ int kmp_search(const char *text, const char *pattern)
     free(lps);
     return count;
 }
+//*

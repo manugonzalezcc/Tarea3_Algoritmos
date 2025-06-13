@@ -12,3 +12,4 @@ void search_in_docs(char *pattern, char *files[], int files_number);
 char **list_valid_files(const char *directory, int *quantity);
 
 #endif
+//*

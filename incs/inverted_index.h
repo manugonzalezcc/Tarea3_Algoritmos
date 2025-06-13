@@ -26,3 +26,4 @@ void clear_inverted_index(void);
 int word_in_index(const char *palabra);
 
 #endif
+//*

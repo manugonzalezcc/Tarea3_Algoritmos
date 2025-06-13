@@ -201,3 +201,4 @@ int load_inverted_index(const char *ruta_idx)
     fclose(in);
     return 1;
 }
+//*

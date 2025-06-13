@@ -47,4 +47,5 @@ float calculate_similarity(ListaTokens a, ListaTokens b)
         return 0.0f;
 
     return (float)commons / (float)unique_total;
-}
+} 
+//*

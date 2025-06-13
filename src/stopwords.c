@@ -62,3 +62,4 @@ void stopwords(char *texto, const char *ruta_stopwords)
 
     delete_stopwords(texto, stopwords, quantity);
 }
+//*
