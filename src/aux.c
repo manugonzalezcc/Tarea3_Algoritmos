@@ -13,7 +13,6 @@
 #include "levenshtein.h"
 #include "ranking.h"
 
-// -------------------- UTILIDADES --------------------
 void ensure_index(const char *route_txt, const char *content)
 {
     char ruta_idx[PATH_MAX];
@@ -42,7 +41,6 @@ int valid_file(const char *file)
     return 1;
 }
 
-// -------------------- FUNCIONES DE OPERACIONES --------------------
 void exec_kmp(char *content, const char *pattern, const char *word)
 {
     fprintf(stdout, "Ejecutando búsqueda con KMP...\n");
