@@ -112,15 +112,43 @@ void exec_comparate(const char *file1, const char *file2)
     printf("╚══════════════════════════════════════════════╝\n" RESET);
     printf(BLUE "Archivo 1:" RESET " %s\n", file1);
     printf(BLUE "Archivo 2:" RESET " %s\n", file2);
-    printf(GREEN "\nSimilitud calculada: " RESET "%.2f%%\n", similarity * 100);
+    printf(GREEN "\nSimilitud calculada: " RESET "%.4f\n\n", similarity);
 
-    if (similarity > 0.5)
+    // Si son iguales (considerando un margen muy pequeño para flotantes)
+    if (similarity >= 0.9999f)
     {
-        printf(YELLOW "▶ Resultado:" RESET " Los textos son " GREEN "bastante similares.\n" RESET);
+        printf(YELLOW "▶ Resultado:" RESET " Los textos son " GREEN "iguales.\n\n" RESET);
     }
     else
     {
-        printf(YELLOW "▶ Resultado:" RESET " Los textos " RED "no son tan similares.\n" RESET);
+        // Tabla de referencia para interpretar la similitud
+        printf(CYAN "╔══════════════════════════════════════════════╗\n");
+        printf("║                 Referencia                   ║\n");
+        printf("╠═════════════════════╦════════════════════════╣\n");
+        printf("║ Valor de similitud  ║       Descripción      ║\n");
+        printf("╠═════════════════════╬════════════════════════╣\n");
+        printf("║ >= 0.75             ║ Muy similares          ║\n");
+        printf("║ >= 0.50 y < 0.75    ║ Bastante similares     ║\n");
+        printf("║ >= 0.25 y < 0.50    ║ Algo similares         ║\n");
+        printf("║ < 0.25              ║ Poco similares         ║\n");
+        printf("╚═════════════════════╩════════════════════════╝\n\n");
+
+        if (similarity >= 0.75)
+        {
+            printf(YELLOW "▶ Resultado:" RESET " Los textos son " GREEN "muy similares.\n" RESET);
+        }
+        else if (similarity >= 0.50)
+        {
+            printf(YELLOW "▶ Resultado:" RESET " Los textos son " GREEN "bastante similares.\n" RESET);
+        }
+        else if (similarity >= 0.25)
+        {
+            printf(YELLOW "▶ Resultado:" RESET " Los textos son " YELLOW "algo similares.\n" RESET);
+        }
+        else
+        {
+            printf(YELLOW "▶ Resultado:" RESET " Los textos " RED "no son tan similares.\n" RESET);
+        }
     }
 
     free_tokens(tokens1);

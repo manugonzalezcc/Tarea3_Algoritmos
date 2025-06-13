@@ -10,7 +10,7 @@ typedef struct node
 {
     char word[100];    // Palabra almacenada
     int frequency;     // Frecuencia de aparición de la palabra
-    struct nodo *next; // Puntero al siguiente nodo (para manejar colisiones)
+    struct node *next; // Puntero al siguiente nodo (para manejar colisiones)
 } Node;
 
 // Declaración de la tabla hash como un arreglo de punteros a nodos

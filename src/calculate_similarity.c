@@ -6,6 +6,27 @@ float calculate_similarity(TokenList a, TokenList b)
 {
     clear_hash_table();
 
+    if (a.quantity != b.quantity)
+        goto continue_similarity;
+
+    for (int i = 0; i < a.quantity; i++)
+    {
+        insert(a.tokens[i]);
+    }
+
+    for (int i = 0; i < b.quantity; i++)
+    {
+        if (!is_in_text(b.tokens[i]))
+        {
+            goto continue_similarity;
+        }
+    }
+
+    return 1.0f;
+
+continue_similarity:
+    clear_hash_table();
+
     int unique_total = 0;
     int commons = 0;
 
