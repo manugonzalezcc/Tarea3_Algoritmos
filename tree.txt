@@ -14,7 +14,9 @@
 │   ├── Informe.synctex.gz
 │   ├── Informe.toc
 │   ├── doc1.html
+│   ├── doc1.html.idx
 │   ├── doc2.html
+│   ├── doc2.html.idx
 │   ├── figures
 │   │   └── logo-umag-ing.png
 │   ├── informe.tex
@@ -25,6 +27,10 @@
 │   │   ├── rhobabel.sty
 │   │   └── rhoenvs.sty
 │   └── texto.txt
+├── graficar_resultados.py
+├── grafico_accesos_memoria.png
+├── grafico_comparaciones.png
+├── grafico_tiempo_ms.png
 ├── incs
 │   ├── boyer_moore.h
 │   ├── hash.h
@@ -34,6 +40,7 @@
 │   ├── levenshtein.h
 │   ├── libs.h
 │   ├── load.h
+│   ├── ranking.h
 │   ├── shift_and.h
 │   ├── similarity.h
 │   └── tokenizer.h
@@ -65,10 +72,11 @@
 │   ├── levenshtein.c
 │   ├── load.c
 │   ├── main.c
+│   ├── ranking.c
 │   ├── shift_and.c
 │   ├── stopwords.c
 │   └── tokenizer.c
 ├── stopwords-es.txt
 └── tree.txt
 
-8 directories, 64 files
+8 directories, 72 files
