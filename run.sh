@@ -6,5 +6,4 @@ if [ "$#" -lt 1 ]; then
   exit 1
 fi
 
-# Ejecuta desde el directorio raíz del proyecto
 ./build/program "$@"

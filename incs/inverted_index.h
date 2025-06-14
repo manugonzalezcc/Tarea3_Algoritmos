@@ -1,29 +1,47 @@
 #ifndef INVERTED_INDEX_H
 #define INVERTED_INDEX_H
+
 #include "libs.h"
 
-typedef struct NodoIndice
+// Estructura que representa un nodo en el índice invertido
+typedef struct IndexNode
 {
-    char palabra[100];
-    int *posiciones;
-    int cantidad;
-    int capacidad;
-    struct NodoIndice *siguiente;
-} NodoIndice;
+    char word[100];         // Palabra indexada
+    int *positions;         // Arreglo dinámico con posiciones donde aparece la palabra
+    int quantity;           // Cantidad actual de posiciones almacenadas
+    int capacity;           // Capacidad del arreglo de posiciones
+    struct IndexNode *next; // Puntero al siguiente nodo en caso de colisiones (lista enlazada)
+} IndexNode;
 
-#define SIZE_IDX 1000
-extern NodoIndice *indiceInvertido[SIZE_IDX];
+#define SIZE_IDX 1000                      // Tamaño del arreglo base del índice invertido (hash table)
+extern IndexNode *invertedIndex[SIZE_IDX]; // Tabla hash global del índice invertido
 
-int hash_indice(char *palabra);
-void agregar_al_indice(const char *palabra, int posicion);
-void imprimir_indice();
-void construir_indice(const char *content);
+// Devuelve el índice hash correspondiente a una palabra
+int hash_index(char *word);
 
-void build_inverted_index(const char *texto);
-void save_inverted_index(const char *ruta_idx);
-int load_inverted_index(const char *ruta_idx);
+// Agrega una palabra con su posición al índice invertido
+void add_to_index(const char *word, int position);
+
+// Muestra el índice invertido en consola
+void print_index();
+
+// Construye el índice invertido a partir del contenido del texto
+void build_index(const char *content);
+
+// Construye el índice invertido desde cero
+void build_inverted_index(const char *text);
+
+// Guarda el índice invertido en disco (archivo .idx)
+void save_inverted_index(const char *route_idx);
+
+// Carga un índice invertido desde disco (archivo .idx)
+int load_inverted_index(const char *route_idx);
+
+// Libera la memoria del índice invertido
 void clear_inverted_index(void);
-int word_in_index(const char *palabra);
+
+// Verifica si una palabra está en el índice invertido
+int word_in_index(const char *word);
 
 #endif
 //*

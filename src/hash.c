@@ -151,7 +151,7 @@ void printf_top_from_hash_table()
     }
 
     printf(BLUE "+--------------------------+------------+\n" RESET);
-    printf(BLUE "| " YELLOW "Top Palabras Clave            " BLUE "         |\n" RESET, limit);
+    printf(BLUE "| " YELLOW "Top Palabras Clave            " BLUE "         |\n" RESET);
     printf(BLUE "+--------------------------+------------+\n" RESET);
     printf(BLUE "| Palabra                  | Frecuencia |\n" RESET);
     printf(BLUE "+--------------------------+------------+\n" RESET);

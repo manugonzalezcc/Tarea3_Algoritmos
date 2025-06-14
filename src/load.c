@@ -25,10 +25,6 @@ char *load(const char *route)
     clean_html(buffer);
     normalize_text(buffer);
 
-    // char stopwords[MAX_STOPWORDS][32];
-    // int count = load_stopwords("stopwords-es.txt", stopwords, MAX_STOPWORDS);
-    // delete_stopwords(buffer, stopwords, count);
-
     return buffer;
 }
 
@@ -107,4 +103,14 @@ void normalize_text(char *text)
 
     *dst = '\0';
 }
-//*
+
+int file_exists(const char *name)
+{
+    FILE *archivo = fopen(name, "r");
+    if (archivo)
+    {
+        fclose(archivo);
+        return 1;
+    }
+    return 0;
+}

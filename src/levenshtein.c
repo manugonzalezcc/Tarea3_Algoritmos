@@ -36,10 +36,10 @@ int levenshtein(const char *s1, const char *s2)
     return matriz[len1][len2];
 }
 
-void buscar_palabras_similares(const char *texto, const char *query, int tolerancia)
+void search_similar_words(const char *text, const char *query, int tolerance)
 {
-    printf("tolerancia %d", tolerancia);
-    char palabra[256];
+    printf("tolerancia %d", tolerance);
+    char word[256];
     int pos = 0;
     int index_palabra = 0;
     int total_encontradas = 0;
@@ -50,16 +50,16 @@ void buscar_palabras_similares(const char *texto, const char *query, int toleran
 
     for (int i = 0;; i++)
     {
-        char c = texto[i];
+        char c = text[i];
         if (c == '\0' || isspace(c))
         {
             if (pos > 0)
             {
-                palabra[pos] = '\0';
-                if (levenshtein(palabra, query) <= tolerancia)
+                word[pos] = '\0';
+                if (levenshtein(word, query) <= tolerance)
                 {
                     total_encontradas++;
-                    printf("| " GREEN "%-20s " RESET "| " YELLOW "%-20s " RESET "| " CYAN "%-9d " RESET "|\n", palabra, query, index_palabra);
+                    printf("| " GREEN "%-20s " RESET "| " YELLOW "%-20s " RESET "| " CYAN "%-9d " RESET "|\n", word, query, index_palabra);
                 }
                 pos = 0;
             }
@@ -72,7 +72,7 @@ void buscar_palabras_similares(const char *texto, const char *query, int toleran
             if (pos == 0)
                 index_palabra = i;
             if (pos < 255)
-                palabra[pos++] = tolower(c);
+                word[pos++] = tolower(c);
         }
     }
 
@@ -80,7 +80,7 @@ void buscar_palabras_similares(const char *texto, const char *query, int toleran
 
     if (total_encontradas == 0)
     {
-        printf(ORANGE "No se encontraron palabras similares a \"%s\" con tolerancia %d.\n" RESET, query, tolerancia);
+        printf(ORANGE "No se encontraron palabras similares a \"%s\" con tolerancia %d.\n" RESET, query, tolerance);
     }
     else
     {

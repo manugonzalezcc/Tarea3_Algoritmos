@@ -2,7 +2,7 @@
 #include "ranking.h"
 #include "load.h"
 
-void search_in_docs(char *pattern, char *files[], int file_numbers)
+void search_in_docs(const char *pattern, char *files[], int file_numbers)
 {
     Result results[file_numbers];
 
@@ -93,8 +93,13 @@ char **list_valid_files(const char *directory, int *quantity)
 
             if (ext && (strcmp(ext, ".html") == 0 || strcmp(ext, ".txt") == 0))
             {
-                char ruta_completa[512];
-                snprintf(ruta_completa, sizeof(ruta_completa), "docs/%s", nombre);
+                char ruta_completa[PATH_MAX];
+
+                if (snprintf(ruta_completa, sizeof(ruta_completa), "docs/%s", nombre) >= (int)sizeof(ruta_completa))
+                {
+                    fprintf(stderr, "Ruta demasiado larga, se ignorará: %s\n", nombre);
+                    continue;
+                }
 
                 files = realloc(files, (total + 1) * sizeof(char *));
                 files[total] = strdup(ruta_completa);
