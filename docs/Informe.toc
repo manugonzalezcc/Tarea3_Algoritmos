@@ -1,22 +1,38 @@
 \babel@toc {spanish}{}\relax 
-\contentsline {section}{\numberline {1}Introducción}{1}{section.1}%
-\contentsline {section}{\numberline {2}Objetivos}{1}{section.2}%
-\contentsline {section}{\numberline {3}Descripción del Proyecto}{2}{section.3}%
-\contentsline {section}{\numberline {4}Requisitos Técnicos}{2}{section.4}%
-\contentsline {section}{\numberline {5}Diseño del Sistema}{2}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Arquitectura del Sistema}{2}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Módulos Principales}{2}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Algoritmos de Búsqueda de Patrones}{2}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Estructuras de Datos para Indexación}{2}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Técnicas de Preprocesamiento de Texto}{2}{subsection.5.5}%
-\contentsline {subsection}{\numberline {5.6}Framework de Análisis de Rendimiento}{2}{subsection.5.6}%
-\contentsline {section}{\numberline {6}Desarrollo del Sistema}{3}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Carga y Preprocesamiento de Documentos}{3}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Indexación de Documentos}{3}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Motor de Búsqueda}{3}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Análisis de Texto}{3}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}Interfaz de Línea de Comandos}{3}{subsection.6.5}%
-\contentsline {section}{\numberline {7}Pruebas y Resultados Experimentales}{3}{section.7}%
-\contentsline {section}{\numberline {8}Discusión y Conclusiones}{3}{section.8}%
-\contentsline {section}{\numberline {9}Referencias}{3}{section.9}%
+\contentsline {section}{\numberline {1}Introducción}{2}{section.1}%
+\contentsline {section}{\numberline {2}Objetivos}{2}{section.2}%
+\contentsline {section}{\numberline {3}Fundamento teórico}{2}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Algoritmos de búsqueda de patrones}{2}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Estructuras de datos auxiliares}{3}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Similitud y distancia}{3}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Eliminación de \textit {stopwords}}{3}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Descripción del proyecto}{3}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Estructura general}{3}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Interfaz de uso}{3}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Principales funcionalidades implementadas}{3}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Modularidad del código}{4}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Requisitos Técnicos}{4}{section.5}%
+\contentsline {section}{\numberline {6}Diseño del Sistema}{4}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Arquitectura del Sistema}{4}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Módulos Principales}{4}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Algoritmos de Búsqueda de Patrones}{4}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Estructuras de Datos para Indexación}{4}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Técnicas de Preprocesamiento de Texto}{5}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}Framework de Análisis de Rendimiento}{5}{subsection.6.6}%
+\contentsline {section}{\numberline {7}Desarrollo del Sistema}{5}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Carga y Preprocesamiento de Documentos}{5}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Indexación de Documentos}{5}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Motor de Búsqueda}{5}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Análisis de Texto}{5}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Interfaz de Línea de Comandos}{6}{subsection.7.5}%
+\contentsline {section}{\numberline {8}Pruebas y Resultados Experimentales}{6}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Metodología de Evaluación}{6}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Comparativa entre algoritmos}{7}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Búsqueda Aproximada y Similitud}{7}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Ranking de Documentos}{7}{subsection.8.4}%
+\contentsline {section}{\numberline {9}Discusión y Conclusiones}{7}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Discusión de Resultados}{7}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Conclusiones Generales}{8}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Líneas de Trabajo Futuro}{8}{subsection.9.3}%
+\contentsline {section}{\numberline {10}Referencias}{8}{section.10}%
 \contentsfinish 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.7)  13 JUN 2025 18:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.7)  14 JUN 2025 20:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1458,8 +1458,8 @@ LaTeX Font Info:    Trying to load font information for T1+stix2 on input line 7
  (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/fonts/stix2-type1\t1stix2.fd
 File: t1stix2.fd 2018/04/02 v2.0.0-latex stix2 T1 font definitions
 ) (informe.aux
-LaTeX Info: Redefining \. on input line 17.
-LaTeX Info: Redefining \% on input line 17.
+LaTeX Info: Redefining \. on input line 15.
+LaTeX Info: Redefining \% on input line 15.
 )
 \openout1 = `informe.aux'.
 
@@ -1677,23 +1677,64 @@ LaTeX Info: Redefining \sptext on input line 1.
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.59998pt on input line 7.
-)
+(Font)              scaled to size 7.59998pt on input line 5.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <8> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 8.
+LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
+(Font)              scaled to size 7.59998pt on input line 8.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 6.64998pt on input line 33.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 6.64998pt on input line 33.
+ [1
+
+{C:/Users/manue/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}{C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/stix2-type1/stix2-mathrm.enc}{C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/stix2-type1/stix2-t1.enc} <./figures/logo-umag-ing.png>])
 \tf@toc=\write5
 \openout5 = `informe.toc'.
 
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 6.64998pt on input line 87.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 77.
+ (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 6.64998pt on input line 87.
- [1
+(Font)              scaled to size 7.59998pt on input line 114.
+LaTeX Font Info:    Font shape `T1/phv/b/it' in size <8> not available
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 114.
+LaTeX Font Info:    Font shape `T1/phv/b/sl' will be
+(Font)              scaled to size 7.59998pt on input line 114.
+ [2{C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/stix2-type1/stix2-mathcal.enc}{C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/stix2-type1/stix2-mathit.enc}{C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/stix2-type1/stix2-mathscr.enc}]
+LaTeX Font Info:    Font shape `T1/phv/b/it' in size <9> not available
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 146.
+LaTeX Font Info:    Font shape `T1/phv/b/sl' will be
+(Font)              scaled to size 8.54997pt on input line 146.
+ [3] [4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 412--413
+[]\T1/stix2/m/n/9 (+20) Los re-sul-ta-dos se al-ma-ce-na-ron en ar-chi-vos CSV se-pa-ra-dos por al-go-rit-mo: \T1/lmtt/m/n/9 resultados_kmp.csv\T1/stix2/m/n/9 (+20) , \T1/lmtt/m/n/9 resultados_bm.csv \T1/stix2/m/n/9 (+20) y
+ []
 
-{C:/Users/manue/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}{C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/stix2-type1/stix2-mathrm.enc}{C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/stix2-type1/stix2-t1.enc} <./figures/logo-umag-ing.png>] [2] [3] 
+<figures/grafico_tiempo_ms.png, id=161, 722.7pt x 433.62pt>
+File: figures/grafico_tiempo_ms.png Graphic file (type png)
+<use figures/grafico_tiempo_ms.png>
+Package pdftex.def Info: figures/grafico_tiempo_ms.png  used on input line 417.
+(pdftex.def)             Requested size: 461.69197pt x 277.013pt.
+<figures/grafico_accesos_memoria.png, id=162, 722.7pt x 433.62pt>
+File: figures/grafico_accesos_memoria.png Graphic file (type png)
+<use figures/grafico_accesos_memoria.png>
+Package pdftex.def Info: figures/grafico_accesos_memoria.png  used on input line 423.
+(pdftex.def)             Requested size: 461.69197pt x 277.013pt.
+
+Underfull \vbox (badness 2478) has occurred while \output is active []
+
+ [6 <./figures/grafico_tiempo_ms.png>] [7 <./figures/grafico_accesos_memoria.png>] [8] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (informe.aux
-LaTeX Info: Redefining \sptext on input line 17.
-LaTeX Info: Redefining \. on input line 17.
-LaTeX Info: Redefining \% on input line 17.
+LaTeX Info: Redefining \sptext on input line 15.
+LaTeX Info: Redefining \. on input line 15.
+LaTeX Info: Redefining \% on input line 15.
 )
  ***********
 LaTeX2e <2023-11-01> patch level 1
@@ -1704,17 +1745,17 @@ Package logreq Info: Writing requests to 'informe.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 68697 strings out of 474486
- 1506378 string characters out of 5743755
- 2627320 words of memory out of 5000000
- 89969 multiletter control sequences out of 15000+600000
- 701189 words of font info for 244 fonts, out of 8000000 for 9000
+ 68971 strings out of 474486
+ 1510913 string characters out of 5743755
+ 2628709 words of memory out of 5000000
+ 90094 multiletter control sequences out of 15000+600000
+ 735309 words of font info for 308 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 137i,12n,143p,1057b,1938s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/stix2-type1/STIX2Math.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/stix2-type1/STIX2Text-Bold.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/stix2-type1/STIX2Text-Italic.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/stix2-type1/STIX2Text-Regular.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on informe.pdf (3 pages, 958250 bytes).
+ 137i,12n,143p,1057b,2354s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/stix2-type1/STIX2Math.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/stix2-type1/STIX2Text-Bold.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/stix2-type1/STIX2Text-Italic.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/stix2-type1/STIX2Text-Regular.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt9.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvbo8a.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on informe.pdf (8 pages, 1119622 bytes).
 PDF statistics:
- 186 PDF objects out of 1000 (max. 8388607)
- 24 named destinations out of 1000 (max. 500000)
- 53426 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 355 PDF objects out of 1000 (max. 8388607)
+ 52 named destinations out of 1000 (max. 500000)
+ 74556 words of extra memory for PDF output out of 89155 (max. 10000000)
 
