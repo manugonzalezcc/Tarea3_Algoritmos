@@ -1,17 +1,15 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Cargar los CSV
 kmp = pd.read_csv('resultados_kmp.csv')
 bm = pd.read_csv('resultados_bm.csv')
 sa = pd.read_csv('resultados_shiftand.csv')
 
-# Agrupa por archivo y calcula el promedio de tiempo
 kmp_group = kmp.groupby('archivo')['tiempo_ms'].mean()
 bm_group = bm.groupby('archivo')['tiempo_ms'].mean()
 sa_group = sa.groupby('archivo')['tiempo_ms'].mean()
 
-archivos = kmp_group.index  # Asume que todos tienen los mismos archivos
+archivos = kmp_group.index 
 
 plt.plot(archivos, kmp_group.values, marker='o', label='KMP')
 plt.plot(archivos, bm_group.values, marker='o', label='Boyer-Moore')
