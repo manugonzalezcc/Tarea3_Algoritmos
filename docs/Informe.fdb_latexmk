@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber informe"] 0 "informe.bcf" "informe.bbl" "informe" 0 0
+["biber informe"] 0 "informe.bcf" "informe.bbl" "informe" 1750027569.88023 0
   "informe.bcf" 0 -1 0 "pdflatex"
   "rho.bib" 0 -1 0 ""
   (generated)
   "informe.bbl"
   "informe.blg"
   (rewritten before read)
-["pdflatex"] 1749944789.6681 "c:/Users/manue/Desktop/GitHub/Tarea3_algoritmos/docs/informe.tex" "informe.pdf" "informe" 1749944797.26845 0
+["pdflatex"] 1750027561.05857 "c:/Users/manue/Desktop/GitHub/Tarea3_algoritmos/docs/informe.tex" "informe.pdf" "informe" 1750027569.88159 0
   "C:/Users/manue/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1744901946 87439 92ff9d8e0e2368ea2f04e93b6ef7dc2c ""
   "C:/Users/manue/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1733618101 24225046 154ccecc62b4161c4ca45e17f09df0ed ""
   "C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -328,18 +328,19 @@
   "C:/Users/manue/AppData/Local/Programs/MiKTeX/tex/latex/xurl/xurl.sty" 1641733940 4675 e4b8c405820368c2dfb03526e16d725a ""
   "C:/Users/manue/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-abspage.sty" 1695383086 2269 4fe6fb3396214c91f164d45faf9bec45 ""
   "C:/Users/manue/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1695383086 20785 f7d1133a287929598a897c93f8f4c44b ""
-  "c:/Users/manue/Desktop/GitHub/Tarea3_algoritmos/docs/informe.tex" 1749944772 34502 93369382bcb96c7e868083257d4383a9 ""
+  "c:/Users/manue/Desktop/GitHub/Tarea3_algoritmos/docs/informe.tex" 1750027556 39808 f735e0a042c269e483e449127854c820 ""
   "figures/grafico_accesos_memoria.png" 1749942628 45600 608e6417be02ce00de57869914a6ddd0 ""
   "figures/grafico_tiempo_ms.png" 1749942628 44431 3c55b66a5513e583252d7b60187de8e7 ""
   "figures/logo-umag-ing.png" 1749213208 289780 c36148e818e6529b3541685395ede274 ""
-  "informe.aux" 1749944796 18431 908f66df1e1f11e35c246b825aba441f "pdflatex"
+  "informe.aux" 1750027568 20595 a00f8ead4bda895f18d2e77dde9c18dc "pdflatex"
   "informe.bbl" 0 -1 0 "biber informe"
-  "informe.run.xml" 1749944796 2416 27f5f750877923b9245e006e2837765a "pdflatex"
-  "informe.tex" 1749944772 34502 93369382bcb96c7e868083257d4383a9 ""
-  "informe.toc" 1749944796 3241 d9c4360de7db563b7b5513088f6bbc06 "pdflatex"
+  "informe.run.xml" 1750027568 2416 27f5f750877923b9245e006e2837765a "pdflatex"
+  "informe.tex" 1750027556 39808 f735e0a042c269e483e449127854c820 ""
+  "informe.toc" 1750027568 3405 db1dbbef2e4acaddad45cd227809e528 "pdflatex"
   "rho-class/rho.cls" 1749213373 17712 79c6dbf62422237f83bdf95a105c092b ""
   "rho-class/rhobabel.sty" 1749213421 3162 75568baf4c3465ebb845f6cae9c5a398 ""
   "rho-class/rhoenvs.sty" 1749213441 3232 2710b6b553fc2b0389d4c7717dc6bb5a ""
+  "tiempos_algoritmos.png" 1749957117 159203 066041065ccd284539c50f9c0451cf21 ""
   (generated)
   "informe.aux"
   "informe.bcf"

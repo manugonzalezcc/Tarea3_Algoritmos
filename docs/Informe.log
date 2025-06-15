@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.7)  14 JUN 2025 20:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.7)  15 JUN 2025 19:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1701,35 +1701,48 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 7.59998pt on input line 114.
+(Font)              scaled to size 7.59998pt on input line 113.
 LaTeX Font Info:    Font shape `T1/phv/b/it' in size <8> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 114.
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 113.
 LaTeX Font Info:    Font shape `T1/phv/b/sl' will be
-(Font)              scaled to size 7.59998pt on input line 114.
+(Font)              scaled to size 7.59998pt on input line 113.
  [2{C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/stix2-type1/stix2-mathcal.enc}{C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/stix2-type1/stix2-mathit.enc}{C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/stix2-type1/stix2-mathscr.enc}]
 LaTeX Font Info:    Font shape `T1/phv/b/it' in size <9> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 146.
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 145.
 LaTeX Font Info:    Font shape `T1/phv/b/sl' will be
-(Font)              scaled to size 8.54997pt on input line 146.
- [3] [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 412--413
+(Font)              scaled to size 8.54997pt on input line 145.
+ [3]
+<tiempos_algoritmos.png, id=154, 578.16pt x 361.35pt>
+File: tiempos_algoritmos.png Graphic file (type png)
+<use tiempos_algoritmos.png>
+Package pdftex.def Info: tiempos_algoritmos.png  used on input line 265.
+(pdftex.def)             Requested size: 434.53215pt x 271.57974pt.
+
+
+LaTeX Warning: Reference `fig:comparaciones_algoritmos' on page 4 undefined on input line 268.
+
+[4] [5 <./tiempos_algoritmos.png>] [6]
+Underfull \hbox (badness 10000) in paragraph at lines 491--492
 []\T1/stix2/m/n/9 (+20) Los re-sul-ta-dos se al-ma-ce-na-ron en ar-chi-vos CSV se-pa-ra-dos por al-go-rit-mo: \T1/lmtt/m/n/9 resultados_kmp.csv\T1/stix2/m/n/9 (+20) , \T1/lmtt/m/n/9 resultados_bm.csv \T1/stix2/m/n/9 (+20) y
  []
 
-<figures/grafico_tiempo_ms.png, id=161, 722.7pt x 433.62pt>
+<figures/grafico_tiempo_ms.png, id=173, 722.7pt x 433.62pt>
 File: figures/grafico_tiempo_ms.png Graphic file (type png)
 <use figures/grafico_tiempo_ms.png>
-Package pdftex.def Info: figures/grafico_tiempo_ms.png  used on input line 417.
+Package pdftex.def Info: figures/grafico_tiempo_ms.png  used on input line 496.
 (pdftex.def)             Requested size: 461.69197pt x 277.013pt.
-<figures/grafico_accesos_memoria.png, id=162, 722.7pt x 433.62pt>
+<figures/grafico_accesos_memoria.png, id=174, 722.7pt x 433.62pt>
 File: figures/grafico_accesos_memoria.png Graphic file (type png)
 <use figures/grafico_accesos_memoria.png>
-Package pdftex.def Info: figures/grafico_accesos_memoria.png  used on input line 423.
+Package pdftex.def Info: figures/grafico_accesos_memoria.png  used on input line 502.
 (pdftex.def)             Requested size: 461.69197pt x 277.013pt.
 
 Underfull \vbox (badness 2478) has occurred while \output is active []
 
- [6 <./figures/grafico_tiempo_ms.png>] [7 <./figures/grafico_accesos_memoria.png>] [8] 
+ [7 <./figures/grafico_tiempo_ms.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [8 <./figures/grafico_accesos_memoria.png>] [9] [10] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (informe.aux
 LaTeX Info: Redefining \sptext on input line 15.
@@ -1740,22 +1753,26 @@ LaTeX Info: Redefining \% on input line 15.
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
 Package logreq Info: Writing requests to 'informe.run.xml'.
 \openout1 = `informe.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 68971 strings out of 474486
- 1510913 string characters out of 5743755
- 2628709 words of memory out of 5000000
- 90094 multiletter control sequences out of 15000+600000
- 735309 words of font info for 308 fonts, out of 8000000 for 9000
+ 69030 strings out of 474486
+ 1512014 string characters out of 5743755
+ 2631349 words of memory out of 5000000
+ 90141 multiletter control sequences out of 15000+600000
+ 735222 words of font info for 307 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  137i,12n,143p,1057b,2354s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/stix2-type1/STIX2Math.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/stix2-type1/STIX2Text-Bold.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/stix2-type1/STIX2Text-Italic.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/stix2-type1/STIX2Text-Regular.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt9.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvbo8a.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on informe.pdf (8 pages, 1119622 bytes).
+Output written on informe.pdf (10 pages, 1284324 bytes).
 PDF statistics:
- 355 PDF objects out of 1000 (max. 8388607)
- 52 named destinations out of 1000 (max. 500000)
- 74556 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 394 PDF objects out of 1000 (max. 8388607)
+ 67 named destinations out of 1000 (max. 500000)
+ 74569 words of extra memory for PDF output out of 89155 (max. 10000000)
 

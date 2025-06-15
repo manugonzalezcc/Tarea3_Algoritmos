@@ -62,7 +62,7 @@
 
 \begin{abstract}
 %Resumen del informe
-En este informe se presenta el desarrollo de un sistema de búsqueda de patrones en documentos, implementando algoritmos avanzados y estructuras de datos eficientes. El objetivo es analizar el rendimiento de estos algoritmos en términos de tiempo de ejecución, número de comparaciones y accesos a memoria, utilizando un conjunto de documentos preprocesados. Se implementaron varios algoritmos de búsqueda, incluyendo KMP y Boyer-Moore, y se desarrollaron estructuras de datos para indexación y recuperación de información. Además, se aplicaron técnicas de preprocesamiento de texto para mejorar la eficiencia y precisión de las búsquedas.
+En este informe se presenta el desarrollo de un sistema de búsqueda de patrones en documentos, implementando algoritmos avanzados y estructuras de datos eficientes. El objetivo es analizar el rendimiento de estos algoritmos en términos de tiempo de ejecución, número de comparaciones y accesos a memoria, utilizando un conjunto de documentos. Se implementaron varios algoritmos de búsqueda, incluyendo KMP, Boyer-Moore y Shift And y se desarrollaron estructuras de datos para indexación y recuperación de información. Además, se aplicaron técnicas de preprocesamiento de texto para mejorar la eficiencia y precisión de las búsquedas.
 \end{abstract}
 
 %----------------------------------------------------------
@@ -74,9 +74,9 @@ En este informe se presenta el desarrollo de un sistema de búsqueda de patrones
 
 \section{Introducción}
 
-La gestión y recuperación de información textual es un área fundamental dentro de la informática, con aplicaciones que van desde motores de búsqueda a nivel web hasta herramientas de análisis documental en entornos locales. Este proyecto se enmarca en dicho contexto, proponiendo el desarrollo de un sistema de búsqueda textual capaz de analizar, procesar y extraer información relevante desde documentos en formatos \texttt{.txt} y \texttt{.html}.
+La gestión y recuperación de información es un área fundamental dentro de la informática, con aplicaciones que van desde motores de búsqueda a nivel web hasta herramientas de análisis documental en entornos locales. Este proyecto se enmarca en dicho contexto, proponiendo el desarrollo de un sistema de búsqueda capaz de analizar, procesar y extraer información desde documentos en formatos \texttt{.txt} y \texttt{.html}.
 
-El sistema ha sido implementado completamente en lenguaje C (estándar C11), priorizando el uso de estructuras de datos básicas y técnicas algorítmicas eficientes. Esto permite no solo evaluar el desempeño práctico del motor, sino también profundizar en el entendimiento de cómo operan internamente los algoritmos clásicos de búsqueda de patrones y estructuras como tablas hash e índices invertidos.
+El sistema ha sido implementado completamente en lenguaje C, priorizando el uso de estructuras de datos básicas y técnicas algorítmicas eficientes. Esto permite no solo evaluar el desempeño práctico del motor, sino también profundizar en el entendimiento de cómo operan internamente los algoritmos clásicos de búsqueda de patrones y estructuras como tablas hash e índices invertidos.
 
 El motor implementado cuenta con módulos de:
 \begin{itemize}
@@ -99,7 +99,6 @@ A lo largo del informe se describirá en detalle el funcionamiento interno del s
     \item Analizar empíricamente la complejidad y rendimiento de los algoritmos.
     \item Aplicar los algoritmos a un problema práctico de procesamiento de documentos.
     \item Implementar técnicas de preprocesamiento de texto para mejorar la eficiencia de búsqueda.
-    \item Documentar adecuadamente el código y los resultados del análisis.
 \end{itemize}
 
 \section{Fundamento teórico}
@@ -145,7 +144,7 @@ Esta distancia mide el número mínimo de operaciones (inserción, eliminación 
 
 \subsection{Eliminación de \textit{stopwords}}
 
-Las \textit{stopwords} son palabras de alta frecuencia y bajo valor semántico (e.g., "el", "de", "y"), que suelen eliminarse para mejorar la precisión en tareas de búsqueda y análisis. En este sistema, se utiliza un listado en español que se filtra antes de construir índices o calcular frecuencias.
+Las \textit{stopwords} son palabras de alta frecuencia y bajo valor semántico (e.g: "el", "y", "la"), que suelen eliminarse para mejorar la precisión en tareas de búsqueda y análisis. En este sistema, se utiliza un listado en español que se filtra antes de construir índices o calcular frecuencias.
 
 \vspace{0.5em}
 Este conjunto de herramientas teóricas y algorítmicas sienta las bases para el diseño e implementación del sistema propuesto, cuya arquitectura modular y análisis de rendimiento se presentan en las siguientes secciones.
@@ -175,10 +174,10 @@ La funcionalidad del sistema se divide en las siguientes etapas:
 El sistema se ejecuta desde línea de comandos, permitiendo una variedad de combinaciones de opciones. Por ejemplo:
 
 \begin{itemize}
-  \item \texttt{./run.sh -f archivo.txt --bm --pattern "palabra"} \hfill (búsqueda Boyer-Moore)
+  \item \texttt{./run.sh --file archivo.txt --bm --pattern "palabra"} \hfill (búsqueda Boyer-Moore)
   \item \texttt{./run.sh --compare doc1.txt doc2.txt} \hfill (similitud entre documentos)
   \item \texttt{./run.sh -f archivo.txt --detect} \hfill (palabras clave del texto)
-  \item \texttt{./run.sh -f archivo.txt --proximity "term" --tolerance 2} \hfill (palabras similares)
+  \item \texttt{./run.sh -f archivo.txt --proximity <palabra>  --tolerance 2} \hfill (palabras similares)
   \item \texttt{./run.sh --ranking "palabra"} \hfill (ranking de documentos)
 \end{itemize}
 
@@ -224,7 +223,7 @@ El sistema desarrollado está organizado en módulos claramente definidos que pe
 \subsection{Arquitectura del Sistema}
 Descripción general de la arquitectura del sistema, incluyendo módulos principales y su interacción.
 
-El núcleo del sistema se estructura en torno a cinco componentes principales: preprocesamiento, indexación, búsqueda, análisis y la interfaz de usuario. Estos módulos interactúan entre sí mediante funciones bien delimitadas, lo que permite separar la lógica de negocio de la entrada/salida y facilita pruebas unitarias.
+El núcleo del sistema se estructura en torno a cuatro componentes principales: preprocesamiento, indexación, búsqueda yanálisis. Estos módulos interactúan entre sí mediante funciones bien delimitadas, lo que permite separar la lógica de negocio de la entrada/salida y facilita pruebas unitarias.
 
 \subsection{Módulos Principales}
 \begin{itemize}
@@ -261,7 +260,21 @@ En este proyecto se implementaron tres algoritmos principales para la búsqueda 
 \end{itemize}
 
 % Recomendación: Aquí se puede incluir una tabla comparativa de resultados experimentales entre los algoritmos, o un gráfico de barras mostrando el tiempo de ejecución y comparaciones.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{tiempos_algoritmos.png}
+    \caption{Comparación del tiempo de ejecución de KMP, Boyer-Moore y Shift-And para distintos patrones.}
+    \label{fig:tiempos_algoritmos}
+    Como se observa en la Figura~\ref{fig:tiempos_algoritmos}, el algoritmo Boyer-Moore presenta un menor tiempo de ejecución para la mayoría de los patrones seleccionados. Por otro lado, la Figura~\ref{fig:comparaciones_algoritmos} muestra que Shift-And realiza menos comparaciones en patrones cortos, mientras que KMP mantiene un comportamiento estable independientemente de la longitud del patrón.
+% kmp
+\end{figure}
 
+%\begin{figure}[ht]
+%    \centering
+%    \includegraphics[width=0.8\textwidth]{comparaciones_algoritmos.png}
+%    \caption{Comparación del número de comparaciones realizadas por cada algoritmo para los mismos patrones.}
+%    \label{fig:comparaciones_algoritmos}
+%\end{figure}
 % kmp
 % El algoritmo KMP utiliza un arreglo de prefijos (LPS) para evitar comparaciones redundantes al buscar patrones. También se registran comparaciones, accesos a memoria y tiempo de ejecución, guardando los resultados en CSV para su análisis.
 
@@ -284,6 +297,32 @@ Para facilitar búsquedas rápidas y eficientes, se utilizaron principalmente do
 
 % Recomendación: Se puede agregar un ejemplo de cómo se almacena una palabra y sus posiciones en el índice invertido.
 
+\subsection{Ejemplo de almacenamiento en el índice invertido}
+
+El índice invertido almacena cada palabra junto con las posiciones en las que aparece en el documento. Por ejemplo, para el texto:
+
+\begin{quote}
+El documento contiene texto relevante. El texto es importante.
+\end{quote}
+
+El índice invertido sería:
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Palabra} & \textbf{Posiciones} \\
+\hline
+el & [0, 5] \\
+documento & [1] \\
+contiene & [2] \\
+texto & [3, 6] \\
+relevante & [4] \\
+es & [7] \\
+importante & [8] \\
+\hline
+\end{tabular}
+\end{center}
+
 \subsection{Técnicas de Preprocesamiento de Texto}
 % Descripción de las técnicas aplicadas (tokenización, normalización, stopwords, stemming, etc.).
 
@@ -300,7 +339,20 @@ El preprocesamiento es fundamental para mejorar la calidad de las búsquedas. Se
     Se eliminan palabras comunes que no aportan significado relevante (como "el", "la", "de", etc.) a través de un archivo externo de lista de términos.
 \end{itemize}
 
-% Recomendación: Se puede mostrar un ejemplo de texto antes y después del preprocesamiento.
+% Recomendación: Se puede mostrar un ejemplo de texto antes y después del preprocesamiento. CHECK
+
+\subsection{Ejemplo de preprocesamiento de texto}
+
+A continuación se muestra un ejemplo de un texto antes y después del preprocesamiento aplicado por el sistema:
+
+\begin{itemize}
+    \item \textbf{Texto original:}\\
+    \texttt{¡El Documento contiene texto relevante! El texto es importante, pero no es único.}
+    \item \textbf{Después del preprocesamiento:}\\
+    \texttt{documento contiene texto relevante texto importante unico}
+\end{itemize}
+
+El preprocesamiento incluye la conversión a minúsculas, la eliminación de signos de puntuación y palabras vacías (stopwords).
 
 \subsection{Framework de Análisis de Rendimiento}
 % Cómo se midió el rendimiento, qué métricas se usaron y cómo se generaron los datos de prueba.
@@ -322,6 +374,12 @@ Los resultados se almacenan en archivos CSV para facilitar su análisis y compar
 
 % Recomendación: Aquí se puede incluir un gráfico de líneas mostrando la evolución del tiempo de ejecución según el tamaño del texto o patrón.
 
+%\begin{figure}[ht]
+%    \centering
+%    \includegraphics[width=0.8\textwidth]{evolucion_tiempo.png}
+%    \caption{Evolución del tiempo de ejecución de los algoritmos según el tamaño del texto.}
+%    \label{fig:evolucion_tiempo}
+%\end{figure}
 
 \section{Desarrollo del Sistema}
 
@@ -347,19 +405,41 @@ Ambas estructuras pueden persistirse en archivos auxiliares (por ejemplo, con ex
 
 % Recomendación: Aquí se puede mostrar un ejemplo simple de cómo se almacena una palabra y sus posiciones en el índice invertido.
 
+\subsection{Ejemplo de almacenamiento en el índice invertido}
+
+El índice invertido almacena cada palabra junto con las posiciones en las que aparece en el documento. Por ejemplo, para el texto:
+
+\begin{quote}
+El documento contiene texto relevante. El texto es importante.
+\end{quote}
+
+El índice invertido sería:
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Palabra} & \textbf{Posiciones} \\
+\hline
+el & [0, 5] \\
+documento & [1] \\
+contiene & [2] \\
+texto & [3, 6] \\
+relevante & [4] \\
+es & [7] \\
+importante & [8] \\
+\hline
+\end{tabular}
+\end{center}
+
 \subsection{Motor de Búsqueda}
 %Búsqueda exacta, aproximada, consultas booleanas, ranking de resultados.
 
-El motor de búsqueda del sistema es altamente configurable y soporta múltiples modalidades de consulta. Entre sus principales capacidades se encuentran:
-
 \begin{itemize}
-    \item \textbf{Búsqueda exacta:} empleando los algoritmos KMP, Boyer-Moore o Shift-And, el usuario puede buscar patrones exactos dentro de un documento.
+    \item \textbf{Búsqueda:} empleando los algoritmos KMP, Boyer-Moore o Shift-And, el usuario puede buscar patrones exactos dentro de un documento.
     \item \textbf{Búsqueda aproximada:} se utiliza la distancia de Levenshtein para localizar palabras similares a la ingresada, útil frente a errores de escritura.
-    \item \textbf{Consultas booleanas:} al combinar múltiples palabras en una misma búsqueda, se verifica si todas ellas están presentes en el documento.
+    \item \textbf{Consultas booleanas:} al buscar una palabra se verifica si está presente en el documento.
     \item \textbf{Ranking de resultados:} cuando se busca una palabra sobre múltiples documentos, se genera una tabla ordenada por número de apariciones, mostrando los textos más relevantes en los primeros lugares.
 \end{itemize}
-
-El algoritmo de búsqueda se selecciona dinámicamente a través de argumentos por línea de comandos, ofreciendo flexibilidad sin necesidad de recompilar el programa.
 
 \subsection{Análisis de Texto}
 %Estadísticas, palabras clave, similitud entre documentos.
@@ -368,7 +448,6 @@ Además de buscar patrones, el sistema permite realizar análisis sobre el conte
 
 \begin{itemize}
     \item \textbf{Palabras clave:} se identifican los términos con mayor frecuencia (ignorando las stopwords), considerados representativos del texto.
-    \item \textbf{Cantidad de términos únicos:} se calcula la diversidad léxica mediante la tabla hash.
     \item \textbf{Similitud entre documentos:} se compara el conjunto de tokens de dos documentos usando la métrica de Jaccard, proporcionando un porcentaje de coincidencia léxica.
 \end{itemize}
 
@@ -424,15 +503,77 @@ Los resultados se almacenaron en archivos CSV separados por algoritmo: \texttt{r
 \caption{Cantidad de accesos a memoria durante las búsquedas}
 \end{figure}
 
-\subsection{Comparativa entre algoritmos}
+\subsection{Tablas de resultados}
 
-Los resultados mostraron diferencias claras entre los algoritmos:
+\begin{table}[H]
+\centering
+\caption{Resultados del algoritmo Boyer-Moore}
+\label{tab:bm}
+\begin{tabular}{|l|l|l|r|r|r|}
+\hline
+\textbf{Archivo} & \textbf{Patrón} & \textbf{Comparaciones} & \textbf{Memoria} & \textbf{Tiempo (ms)} \\
+\hline
+docs/doc1.html & documento & 109 & 605 & 0.005 \\
+docs/doc1.html & texto & 133 & 739 & 0.006 \\
+docs/doc1.html & analisis & 80 & 550 & 0.004 \\
+docs/doc1.html & puntuacion & 87 & 574 & 0.005 \\
+docs/doc1.html & caracteres & 72 & 526 & 0.004 \\
+\hline
+\end{tabular}
+\end{table}
 
-\begin{itemize}
-    \item \textbf{KMP} mantiene un comportamiento estable, con un número de comparaciones proporcional a la longitud del texto y patrón. Es ideal en patrones con repeticiones.
-    \item \textbf{Boyer-Moore} resultó el más eficiente en la mayoría de los casos, especialmente cuando el patrón es poco repetitivo y el texto es más largo, gracias a sus saltos inteligentes.
-    \item \textbf{Shift-And} fue el más rápido en textos pequeños y patrones cortos, pero no puede utilizarse con patrones de más de 31 caracteres, lo cual limita su aplicabilidad.
-\end{itemize}
+\vspace{0.5em}
+\noindent\textit Boyer-Moore demuestra un rendimiento notable con bajos tiempos de ejecución y una cantidad reducida de comparaciones y accesos a memoria, lo que refleja su eficiencia en textos largos con patrones poco repetitivos.
+
+\vspace{1em}
+
+\begin{table}[H]
+\centering
+\caption{Resultados del algoritmo KMP}
+\label{tab:kmp}
+\begin{tabular}{|l|l|r|r|r|}
+\hline
+\textbf{Archivo} & \textbf{Patrón} & \textbf{Comparaciones} & \textbf{Memoria} & \textbf{Tiempo (ms)} \\
+\hline
+resultados\_kmp.csv & documento & 647 & 712 & 0.020 \\
+resultados\_kmp.csv & texto & 663 & 714 & 0.011 \\
+resultados\_kmp.csv & analisis & 899 & 951 & 0.008 \\
+resultados\_kmp.csv & puntuacion & 899 & 939 & 0.011 \\
+resultados\_kmp.csv & caracteres & 899 & 949 & 0.012 \\
+\hline
+\end{tabular}
+\end{table}
+
+\vspace{0.5em}
+\noindent\textit Aunque el algoritmo KMP presenta tiempos aceptables, realiza un mayor número de comparaciones y accesos a memoria, lo que puede hacerlo menos eficiente en ciertos contextos donde la velocidad es prioritaria.
+
+\vspace{1em}
+
+\begin{table}[H]
+\centering
+\caption{Resultados del algoritmo Shift-And}
+\label{tab:shiftand}
+\begin{tabular}{|l|l|r|r|r|}
+\hline
+\textbf{Archivo} & \textbf{Patrón} & \textbf{Comparaciones} & \textbf{Memoria} & \textbf{Tiempo (ms)} \\
+\hline
+docs/doc1.html & documento & 450 & 459 & 0.005 \\
+docs/doc1.html & texto & 450 & 455 & 0.003 \\
+docs/doc1.html & analisis & 450 & 458 & 0.004 \\
+docs/doc1.html & puntuacion & 450 & 460 & 0.005 \\
+docs/doc1.html & caracteres & 450 & 460 & 0.005 \\
+\hline
+\end{tabular}
+\end{table}
+
+\vspace{0.5em}
+\noindent\textit Shift-And mostró tiempos de respuesta muy bajos y un uso constante de memoria, destacándose en textos pequeños y patrones cortos. Sin embargo, su principal limitación es la restricción de longitud del patrón (máximo 31 caracteres).
+
+\vspace{1em}
+
+\noindent\textbf Las tablas presentadas complementan los gráficos generados, permitiendo observar en detalle las métricas que alimentan las visualizaciones de tiempo de ejecución y accesos a memoria. Al analizarlas en conjunto, se confirma que Boyer-Moore tiende a ser más eficiente en la mayoría de los escenarios, mientras que Shift-And ofrece un rendimiento excepcional en casos específicos pero con restricciones. Por su parte, KMP mantiene un comportamiento estable y predecible, lo que lo hace útil para patrones con repeticiones o contextos donde la estabilidad es preferida sobre la velocidad.
+
+
 
 % Recomendación: Incluir una tabla resumen con valores promedio para cada algoritmo (tiempo, comparaciones, accesos) sobre un conjunto de archivos.
 % \begin{table}[H]
@@ -506,25 +647,39 @@ El sistema cumple con los objetivos propuestos: permite realizar búsquedas exac
     \item La incorporación de estructuras como la tabla hash y el índice invertido mejora significativamente la eficiencia y permite funcionalidades adicionales como la comparación de documentos y el ranking de relevancia.
 \end{itemize}
 
-\subsection{Líneas de Trabajo Futuro}
+\begin{thebibliography}{9}
 
-Como extensiones posibles se proponen:
+\bibitem{cormen}
+Cormen, T. H., Leiserson, C. E., Rivest, R. L., \& Stein, C. (2009).
+\textit{Introduction to Algorithms} (3rd ed.).
+MIT Press.
 
-\begin{itemize}
-    \item Incorporar algoritmos adicionales como Rabin-Karp o Aho-Corasick para patrones múltiples.
-    \item Agregar soporte para expresiones regulares en las búsquedas.
-    \item Implementar una interfaz gráfica o servicio web para mayor accesibilidad.
-    \item Optimizar el tratamiento de textos grandes mediante lectura por bloques o técnicas de paralelización.
-\end{itemize}
+\bibitem{boyermoore}
+Boyer, R. S., \& Moore, J. S. (1977).
+A Fast String Searching Algorithm.
+\textit{Communications of the ACM}, 20(10), 762–772.
 
-El proyecto deja como legado una base sólida para continuar explorando y desarrollando soluciones en el área de recuperación de información textual.
+\bibitem{gusfield}
+Gusfield, D. (1997).
+\textit{Algorithms on Strings, Trees, and Sequences: Computer Science and Computational Biology}.
+Cambridge University Press.
 
+\bibitem{irbook}
+Manning, C. D., Raghavan, P., \& Schütze, H. (2008).
+\textit{Introduction to Information Retrieval}.
+Cambridge University Press. Disponible en: \url{https://nlp.stanford.edu/IR-book/}
 
-\section{Referencias}
-\begin{itemize}
-    \item 
-    \item 
-    \item 
-\end{itemize}
+\bibitem{wikiKMP}
+Wikipedia. Knuth–Morris–Pratt algorithm. Disponible en: \url{https://en.wikipedia.org/wiki/Knuth–Morris–Pratt_algorithm}
 
+\bibitem{wikiBM}
+Wikipedia. Boyer–Moore string-search algorithm. Disponible en: \url{https://en.wikipedia.org/wiki/Boyer–Moore_string-search_algorithm}
+
+\bibitem{wikiShiftAnd}
+Wikipedia. Bitap algorithm. Disponible en: \url{https://en.wikipedia.org/wiki/Bitap_algorithm}
+
+\bibitem{wikiInverted}
+Wikipedia. Inverted index. Disponible en: \url{https://en.wikipedia.org/wiki/Inverted_index}
+
+\end{thebibliography}
 \end{document}
