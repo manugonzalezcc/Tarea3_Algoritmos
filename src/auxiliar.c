@@ -1,5 +1,5 @@
 #include "libs.h"
-#include "aux.h"
+#include "auxiliar.h"
 #include "tokenizer.h"
 #include "search.h"
 #include "help.h"

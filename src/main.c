@@ -1,7 +1,7 @@
 #include "help.h"
 #include "load.h"
 #include "inverted_index.h"
-#include "aux.h"
+#include "auxiliar.h"
 
 // -------------------- FUNCIÓN PRINCIPAL --------------------
 int main(int argc, char *argv[])
